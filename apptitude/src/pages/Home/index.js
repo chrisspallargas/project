@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import WelcomeMessage from '../../components/WelcomeMessage'
+import AskUser from '../../components/AskUser';
 
 class Home extends Component{
     render(){
         return(
             <div>
-                <WelcomeMessage></WelcomeMessage>
+                <AskUser></AskUser>
             </div>
         )
     }

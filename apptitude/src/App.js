@@ -3,10 +3,11 @@ import './App.scss';
 import Home from './pages/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="Apptitude">
         <Router>
           <Switch>
             <Route path='/' component={Home}></Route>
