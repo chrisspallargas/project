@@ -3,6 +3,7 @@ import { Link } from 'react-scroll';
 import LogIn from '../LogIn';
 import SignIn from '../SignIn';
 import Auth from '../../services/Auth'
+import './index.scss';
 
 let instance = new Auth();
 
@@ -10,7 +11,7 @@ class AskUser extends Component {
     render() {
         return (
             <div>
-                <img className='principal' src={require('../../img/WelcomeToApptitude.png')} />
+                <img className='principal' alt='welcomeApp' src={require('../../img/WelcomeToApptitude.png')} />
                 <div className='askUser'>
                     {/* <div className='block'> */}
                         {/* <div className='question'>Do you have<br /> an account?</div> */}

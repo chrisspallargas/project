@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+
+.principal{
+    width:100%;
+    height: 30vh;
+    margin-top: -25px;
+  }
+  
+  .askUser{
+    height:73vh;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .buttSign{
+    display:flex;
+    flex-direction:column;
+    background-color:$specialColor;
+    font-family: $fontTitle;
+    color:$menuText;
+    border-color:$specialColor;
+    border-radius: 8%;
+    width: 90px;
+    height: 45px;
+    margin-bottom: 50px;
+    justify-content: center;
+  }

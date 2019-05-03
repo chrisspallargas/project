@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import'./index.scss';
 
 class LogIn extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class LogIn extends Component {
         //console.log("email: "+ email +" y password: "+ password);
         let correct = this.checkPassword(email, password);
         if (!correct) {
-            document.getElementsByClassName("login-form").reset();
+            document.getElementById("login-form").reset();
             this.setState({ message: "Incorrect info, please try again" });
         }
     }
@@ -41,7 +42,7 @@ class LogIn extends Component {
     render() {
         const { message } = this.state;
         return (
-            <form onSubmit={this.onSubmit} className="login-form" action="#">
+            <form onSubmit={this.onSubmit} className="login-form" id='login-form' action="#">
                 <span className='form-tags'>Email</span><input type='text'
                     className="userData"
                     name="UserEmail"

@@ -9,3 +9,13 @@ $menuText:#F5F5F5;
 $specialColor:#E6003F;
 $fontText:'Roboto Slab', serif;
 $fontTitle:'Roboto', sans-serif;
+
+
+.general-buttons{
+    display:flex;
+    flex-direction: column;
+    width: 75%;
+    height: 90px;
+    justify-content: space-evenly; 
+    margin: 81px auto;  
+}

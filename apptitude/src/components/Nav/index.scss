@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor: #e6e6e6;
+$backPicking: #f5f5f5;
+$generalText: #222222;
+$backMenu: #222222;
+$menuText: #f5f5f5;
+$specialColor: #e6003f;
+$fontText: "Roboto Slab", serif;
+$fontTitle: "Roboto", sans-serif;
+
+.nav {
+  background-color: $backMenu;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-title {
+  background-size: cover;
+  width: 60%;
+  height: 60px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+}
+
+.nav-user-img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-user-name {
+  margin-left: 10px;
+  font-family: $fontTitle;
+  color: $backColor;
+  font-size: 13px;
+}
+
+//-----------------------------------------------------------------BurgerMenú
+/* Position and sizing of burger button */
+.bm-burger-button {
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+  background-color:blue;
+}
+
+/* Cruz para cerrar el menuBurger */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape cruz menuBurger */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+// .bm-menu-wrap {
+//   position: fixed;
+//   height: 100%;
+  
+// }
+
+/* Estilo dentro del menu */
+.bm-menu {
+  background:$backMenu;
+  padding: 2.5em 0;
+  font-size: 1.15em;
+  font-family: $fontTitle;
+}
+
+/* Morph shape necessary with bubble or elastic */
+// .bm-morph-shape {
+//   fill: #373a47;
+// }
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color:$backColor;
+  font-size:0.8em;
+  text-decoration:none;
+  margin:auto 10px 10px 10px;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

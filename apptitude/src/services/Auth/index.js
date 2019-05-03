@@ -14,6 +14,16 @@ export default class Auth {
         return -1;
     }
 
+    getName(email) {
+        for (let i = 0; i < this.users.length; i++) {
+            if (this.users[i].email === email) {
+                return this.users[i].name;
+            }
+
+        }
+        return -1;
+    }
+
     //CheckPass
     passIsCorrect(email, password) {
         for (let i = 0; i < this.users.length; i++) {

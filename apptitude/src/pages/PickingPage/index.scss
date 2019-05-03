@@ -9,3 +9,14 @@ $menuText:#F5F5F5;
 $specialColor:#E6003F;
 $fontText:'Roboto Slab', serif;
 $fontTitle:'Roboto', sans-serif;
+
+.routine{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+
+    .fakeDrag{
+        width: fit-content;
+        
+    }
+}
