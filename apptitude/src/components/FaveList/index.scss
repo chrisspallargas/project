@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+.each-fave{
+    display:flex;
+    margin: 0 10% 5% 10%;
+    font-family: $fontText;
+    color:$generalText;
+    justify-content: space-between;
+
+}
+
+.butts{
+    font-family: $fontText;
+    color:$generalText;
+    margin-right:2px;
+}
+
+.b{
+    margin-right:5px;
+}

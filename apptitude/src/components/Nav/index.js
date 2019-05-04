@@ -23,7 +23,7 @@ class Nav extends Component {
                             alt='icono'
                             src={require('../../img/user-icon.png')}>
                         </img>
-                        {/* <Menu right width={ '120px' }>
+                         {/* <Menu right width={ '120px' }>
                             <a id="myRoutines" className="menu-item"
                                 href="/myRoutines">- My Routines</a>
                             <a id="optionPage" className="menu-item"
