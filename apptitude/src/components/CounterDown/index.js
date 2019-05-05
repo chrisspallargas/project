@@ -9,7 +9,7 @@ export default class CounterDown extends Component{
        
         return (
             <div className='counter-down'>
-            <button type='button' className='butt-down'><span className='number'>1</span></button> 
+            <button type='button' className='butt-down'><span className='number'>{this.props.counter}</span></button> 
             </div>
         )
     }

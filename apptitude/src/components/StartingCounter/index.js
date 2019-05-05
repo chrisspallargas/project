@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import './index.scss';
-import CounterDown from '../../components/CounterDown';
+import CounterDown from '../CounterDown';
 
 
 
@@ -11,9 +10,8 @@ export default class StartingCounter extends Component{
        
         return (
             <div className='start-counter'>
-                <Nav />
                 <div className='message'>It starts in...</div>
-                <CounterDown />          
+                <CounterDown counter={this.props.counter}/>          
             </div>
         )
     }
