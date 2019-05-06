@@ -7,6 +7,7 @@ class Exercise extends Component {
     }
 
     handleClick = () => {
+        // console.log("TCL: Exercise -> handleClick -> this.props.id, this.props.pos", this.props.id, this.props.pos)
         this.props.metodo(this.props.id, this.props.pos);
     }
 

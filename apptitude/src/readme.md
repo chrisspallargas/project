@@ -155,7 +155,7 @@
     
     {
         name: 'Quick toes',
-        description: 'With your feet at hips width, lower your body down into a half squat position and reach out with your arms in front of you. ... Hold this body position, then start running as fast as you can on the spot. Stay low as your run and feel the burn in your quads.',
+        description: 'With your feet at hips width, lower your body down into a half squat position and reach out with your arms in front of you. Hold this body position, then start running as fast as you can on the spot. Stay low as your run and feel the burn in your quads.',
         muscularGroup: 'legs',
         img: 'foto',
         id: 18,

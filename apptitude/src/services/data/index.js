@@ -445,20 +445,30 @@ export default class Data {
     
     // ];
    
-    perMuscularGroup(grupo) {
-        return this.exercises.filter(elem => elem.muscularGroup===grupo);
-    }
+    static async perMuscularGroup(grupo) {
+        // return this.exercises.filter(elem => elem.muscularGroup===grupo);
 
-    getExercise(id){
-        for(let i=0;i<this.exercises.length;i++){
-            if(this.exercises[i].id===id){
-                return this.exercises[i];
-            }
+        const db = firebase.firestore();
+         let results = [];
+
+        try {
+          const querySnapshot = await db.collection("exercises").get();
+          // console.log(querySnapshot);
+        
+          querySnapshot.forEach(doc => {
+             const objectResult = doc.data();
+            //  console.log("TCL: Data -> staticperMuscularGroup -> objectResult", objectResult)
+             objectResult.id = doc.id;
+             if(objectResult.muscularGroup === grupo){
+                results.push(objectResult);
+             }
+           }) 
+        } catch (err) {
+          console.log("TCL: DataService -> getContacts -> err", err)
         }
 
-        return {};
+        return results;
     }
-    
 
     static async getObjectDetail(collection, objId) {
         const db = firebase.firestore();
