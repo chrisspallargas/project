@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slider from "react-slick";
 import Nav from '../../components/Nav';
 import Questions from '../../components/Questions';
 import ExerciseTabs from '../../components/ExerciseTabs';
@@ -42,7 +43,6 @@ class PickingPage extends Component {
     //Añadir el ejercicio con id a seleccionados
     onAddExercise = async(id, pos) => {
         
-        // let data = new Data();
         let exerciseId = await Data.getObjectDetail('exercises',id);
         // console.log(exerciseId.img +" "+exerciseId.name+" "+exerciseId.intensity);
         let updatedSelected = this.state.selected;
@@ -61,11 +61,34 @@ class PickingPage extends Component {
         this.setState({exerciseTime});
     }
 
+    metodoSave = () => {
+        // Aquí irá el comportamiento del boton save del pop up, que gaurdará todo 
+        // los ejercicios del this.state.selected
+    }
+
+    metodoDiscard = () => {
+        //Aquí simplemente se volverá al principio de la app
+    }
+
+
     render() {
+
         let { selected } = this.state;
+
+        // let settings = {
+        //         dots: true,
+        //         lazyLoad: true,
+        //         infinite: true,
+        //         speed: 500,
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1,
+        //         initialSlide: 2
+        //       };
+
         return (
             <div className='option-page'>
                 <Nav />
+                {/* <Slider {...settings}> */}
                 <div className="routine">
                     {selected.map((exercise, i) => {
                         return (
@@ -84,9 +107,10 @@ class PickingPage extends Component {
                         );
                     })}
                 </div>
+                {/* </Slider> */}
                 <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc}/>
                 <ExerciseTabs metodo={this.onAddExercise} />
-                <Buttons />
+                <Buttons metodoSave={this.metodoSave} metodoDiscard={this.metodoDiscard}/>
 
             </div>
         )

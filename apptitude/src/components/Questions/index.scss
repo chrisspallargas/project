@@ -15,6 +15,7 @@ $fontTitle:'Roboto', sans-serif;
     display:flex;
     justify-content:space-around;
     margin:10px;
+    margin-top:45px;
 }
 
 .minutes{
@@ -26,5 +27,5 @@ $fontTitle:'Roboto', sans-serif;
     font-family:$fontText;
     color:$generalText;
     font-size:16px;
-    margin-right:8px;
+    margin:0 8px;
 }
