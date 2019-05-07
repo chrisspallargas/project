@@ -11,9 +11,9 @@ export default class BreakPage extends Component{
        
         return (
             <div className='break-page'>
-                <Nav />
+                {/* <Nav />
                 <div className='message'>Break time</div>
-                <CounterDown />          
+                <CounterDown />           */}
             </div>
         )
     }

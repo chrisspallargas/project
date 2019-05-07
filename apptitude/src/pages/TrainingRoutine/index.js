@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.scss';
 import Nav from '../../components/Nav';
 import CurrentExercise from '../../components/CurrentExercise';
-import CurrentTimer from '../../components/CurrentTimer';
+//import CurrentTimer from '../../components/CurrentTimer';
 import Data from '../../services/Data';
 import StartingCounter from '../../components/StartingCounter';
 import CounterDown from '../../components/CounterDown';
@@ -123,10 +123,3 @@ export default class TrainingRoutine extends Component{
         )
     }
 }
-
-
-{/* <div className='exercise-page'>
-<Nav />
-<CurrentExercise />
-<CurrentTimer/>
-</div> */}

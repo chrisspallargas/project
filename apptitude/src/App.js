@@ -10,6 +10,8 @@ import BreakPage from './pages/BreakPage';
 import TrainingRoutine from './pages/TrainingRoutine';
 import EndPage from './pages/EndPage';
 import MyFave from './pages/MyFave';
+import Profile from './pages/Profile';
+import Menu from './pages/Menu';
 
 
 class App extends Component {
@@ -18,6 +20,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
+          <Route path='/menu' component={Menu}></Route>
+          <Route path='/profile' component={Profile}></Route>
             <Route path='/favorites' component={MyFave}></Route>
             <Route path='/end' component={EndPage}></Route>
             <Route path='/training-routine/:id' component={TrainingRoutine}></Route>

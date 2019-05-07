@@ -75,24 +75,26 @@ class PickingPage extends Component {
 
         let { selected } = this.state;
 
-        // let settings = {
-        //         dots: true,
-        //         lazyLoad: true,
-        //         infinite: true,
-        //         speed: 500,
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1,
-        //         initialSlide: 2
-        //       };
+        let settings = {
+                dots: true,
+                lazyLoad: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 2
+              };
 
         return (
             <div className='option-page'>
                 <Nav />
-                {/* <Slider {...settings}> */}
+                
                 <div className="routine">
+                
                     {selected.map((exercise, i) => {
                         return (
                             <div className='fakeDrag'>
+                            {/* <Slider {...settings}> */}
                                 <Exercise
                                     key={exercise.id+i}
                                     pos={i}
@@ -103,11 +105,13 @@ class PickingPage extends Component {
                                     metodo={this.metodoEmpty}
                                 />
                                 <ButtonComponent key={exercise.id} pos={i} id={exercise.id} metodo={this.metodoDelete} />
+                                {/* </Slider>  */}
                             </div>
                         );
                     })}
+                  
                 </div>
-                {/* </Slider> */}
+                
                 <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc}/>
                 <ExerciseTabs metodo={this.onAddExercise} />
                 <Buttons metodoSave={this.metodoSave} metodoDiscard={this.metodoDiscard}/>

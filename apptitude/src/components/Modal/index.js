@@ -64,7 +64,7 @@ export default class Modal extends React.Component {
                     Make it Random!
                         </button></div>
 
-                <Rodal width={300} height={300} visible={this.state.visible} onClose={this.hide}>
+                <Rodal customStyles={{backgroundColor:"#E6E6E6", borderRadius:'25px'}} width={300} height={300} visible={this.state.visible} onClose={this.hide}>
                     <div>
                         <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                         <MuscularGroupOptions checkedGroup={this.checkedGroup}/>

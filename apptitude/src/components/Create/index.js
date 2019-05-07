@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
+import {Link} from 'react-router-dom';
 
 //import Popup from "reactjs-popup";
 
@@ -30,11 +31,11 @@ class Create extends Component {
         const {visible} = this.state;
         return (
             <div className='create'>
-                <a href='./picking-page' className='linkCreate'><button type='button'
+                <Link to={'/picking-page'} className='linkCreate'><button type='button'
                     className='buttCreate'
                     onClick={this.createRoutine}>
                     Create your own routine
-                        </button></a>
+                        </button></Link>
 
                 {/* <div className='linkCreate'><button type='button'
                     className='buttCreate'
@@ -44,10 +45,7 @@ class Create extends Component {
                 <Modal
                     visible={visible}
                     onClose={this.onCloseModal}
-                    size='s'
-                    message="¡Has hecho login súper bien!"
-                    closeButtonText="Llévame a la home :D "
-                />
+                    />
             </div>
         )
     }
