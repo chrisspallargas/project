@@ -30,13 +30,17 @@ $fontTitle: "Roboto", sans-serif;
 
 .placeholder {
   margin: 10px 0;
-  width: 175px;
-  box-shadow: 0 0 10px $specialColor;
+  width: 160px;
+  box-shadow: 0 0 5px $backMenu;
 }
 
-.save-butt {
+.buttSave {
+  background-color:$specialColor;
+  border-style:solid;
+  border-color:$specialColor;
+  border-radius:5px;
   font-family: $fontText;
-  color: $generalText;
-  font-size: 15px;
-  width: 75px;
+  color: $menuText;
+  font-size: 18px;
+  width: 190px;
 }

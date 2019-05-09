@@ -20,3 +20,14 @@ $fontTitle:'Roboto', sans-serif;
     margin: 70px auto; 
     align-items: center; 
 }
+
+.buttNormal{
+    background-color:rgb(97, 96, 96);
+    border-style:solid;
+    border-color:rgb(175, 174, 174);
+    border-radius:5px;
+    font-family: $fontText;
+    color: $menuText;
+    font-size: 18px;
+    width: 190px;
+}

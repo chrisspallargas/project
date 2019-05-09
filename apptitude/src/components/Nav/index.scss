@@ -43,11 +43,17 @@ $fontTitle: "Roboto", sans-serif;
 //-----------------------------------------------------------------BurgerMenú
 /* Position and sizing of burger button */
 .bm-burger-button {
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
-  background-color:blue;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30%;
+  height: 8%;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  font-size: 0px;
+  background: transparent;
+  cursor: pointer;
 }
 
 /* Cruz para cerrar el menuBurger */
@@ -61,16 +67,6 @@ $fontTitle: "Roboto", sans-serif;
   background: #bdc3c7;
 }
 
-/*
-  Sidebar wrapper styles
-  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-  */
-// .bm-menu-wrap {
-//   position: fixed;
-//   height: 100%;
-  
-// }
-
 /* Estilo dentro del menu */
 .bm-menu {
   background:$backMenu;
@@ -78,11 +74,6 @@ $fontTitle: "Roboto", sans-serif;
   font-size: 1.15em;
   font-family: $fontTitle;
 }
-
-/* Morph shape necessary with bubble or elastic */
-// .bm-morph-shape {
-//   fill: #373a47;
-// }
 
 /* Wrapper for item list */
 .bm-item-list {
@@ -103,3 +94,4 @@ $fontTitle: "Roboto", sans-serif;
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+

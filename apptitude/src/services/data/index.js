@@ -485,4 +485,59 @@ export default class Data {
     
         return selectedElement;
       }
+
+
+    static async addRoutineToUser(nameRoutine, idRoutine, userId){
+      const db = firebase.firestore();
+      let success = false;
+
+      //Este código guarda el nombre e id de la rutina en la collection users, y por tanto
+        //no debe guardarse en esa collection, si no me pasan Id de user.
+
+        let user=await this.getObjectDetail("users",userId);
+        user.myRoutines.push(idRoutine);
+        user.myRoutinesNames.push(nameRoutine);
+
+        try {
+          await db.collection("users").doc(userId).set({myRoutines:user.myRoutines, myRoutinesNames:user.myRoutinesNames}, {merge: true});
+        } catch (err) {
+          success = false;
+          console.log("TCL: DataService -> updateDetail -> err", err)
+        }
+    
+        return success;
+
+    } 
+
+    static async addRoutine(name, data, userId) {
+        const db = firebase.firestore();
+        let success = false;
+        let idRoutine = null;
+    
+        //Este código guarda la rutina en la collection de routines
+        try {
+          const docRef = await db.collection('routines').add({
+            breakTime:data.breakTime,
+            duration:data.duration,
+            exercices:data.exercices,
+            name:name
+          });
+          if(docRef && docRef.id) {
+            idRoutine=docRef.id;
+            success = true;
+          }
+        } catch (err) {
+          console.log("TCL: DataService -> addContact -> err", err)
+        }
+
+        //Este código guarda el nombre e id de la rutina en la collection users, y por tanto
+        //no debe guardarse en esa collection, si no me pasan Id de user.
+        if(success && userId){
+            await this.addRoutineToUser(name,idRoutine,userId);
+        }
+        
+    
+        return success;
+      }  
+    
 }

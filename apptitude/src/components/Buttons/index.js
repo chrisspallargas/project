@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import './index.scss';
 import ModalSave from '../ModalSave';
+import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+
+import './index.scss';
 
 
-export default class PickingPage extends Component {
+class Buttons extends Component {
     constructor(props) {
         super(props);
 
@@ -19,21 +22,39 @@ export default class PickingPage extends Component {
 
     onCloseModal = () => {
         this.setState({visible: false});
-        this.props.history.push('/'); 
+        // this.props.history.push('/'); 
       }
+
+    discard = () =>{
+        this.props.metodoDiscard();
+    }
+
+    manageStart = async() =>{
+        await this.props.metodoSave("unsaved");
+        // this.props.history.push('/training-routine/'+{user.myRoutines[últimapos]})
+        this.props.history.push('/training-routine/3JJ2w0vKzWH3dvOLDnjj')
+    }
 
     render() {
         const {visible} = this.state;
         return (
             <div className='general-buttons'>
-                {/* <button className='butt' type='button' onClick={this.onSaveRoutine}>Save</button> */}
-                <ModalSave
+    
+                {this.props.selectedLength>0 && !this.props.saved && <ModalSave
                     visible={visible}
                     onClose={this.onCloseModal}
-                    />
-                <button className='butt' type='button'>Discard</button>
-                <button className='butt' type='button'>Let's start!</button>
+                    metodoSave={this.props.metodoSave}
+                    />}
+
+                {this.props.saved && <button className='buttNormal' onClick={this.discard} type='button'>Go to menu</button>}
+                {!this.props.saved && <button className='buttNormal' onClick={this.discard} type='button'>Discard</button>}
+                {this.props.selectedLength>1 && <button className='buttNormal' onClick={this.manageStart} type='button'>Let's start!</button>}
             </div>
         )
     }
 }
+
+
+{/* <Link to={'/training-routine/:id'}></Link> */}
+
+export default withRouter(Buttons);

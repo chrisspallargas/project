@@ -19,7 +19,27 @@ $fontTitle:'Roboto', sans-serif;
     width:100%;
 
     .fakeDrag{
-        width: fit-content;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin:0 5px;
+
+        .containerEx{
+            width:100px;
+            .eachEx{
+                width: 100px;
+    
+            }
+        }
         
     }
+}
+
+.fakeDrag{
+    width: fit-content;    
+}
+
+.newFakeDrag{
+    width:100px;
 }

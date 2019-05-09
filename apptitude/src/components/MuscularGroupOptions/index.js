@@ -3,17 +3,7 @@ import './index.scss';
 
 
 export default class MuscularGroupOptions extends Component {
-    constructor(props) {
-        super(props);
-
-        // this.state = {
-        //     legs: false,
-        //     arms: false,
-        //     buttocks: false,
-        //     abs: false,
-        //     cardio: false
-        //}
-    }
+ 
 
     onChange = (event) =>{
        this.props.checkedGroup(event.target.name);

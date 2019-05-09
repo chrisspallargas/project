@@ -4,11 +4,11 @@ import './index.scss';
 class Questions extends Component {
     
     changeBreak = (event) => {
-        this.props.metodoBreak(event.target.value);
+        this.props.metodoBreak(parseInt(event.target.value));
     }
 
     changeExerc = (event) => {
-        this.props.metodoExerc(event.target.value);
+        this.props.metodoExerc(parseInt(event.target.value));
     }
 
     render() {

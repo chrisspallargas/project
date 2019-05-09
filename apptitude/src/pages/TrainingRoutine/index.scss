@@ -18,3 +18,25 @@ $fontTitle:'Roboto', sans-serif;
     height: 100vh;
     display: flex;
 }
+
+.break-message{
+    display:flex;
+    justify-content: center;
+    font-family: $fontTitle;
+    color:$generalText;
+    font-size:30px;
+    margin-top: 100px;
+    margin-bottom:20px;
+}
+
+.butt-start{
+    margin-top:130px;
+    background-color:$specialColor;
+    border-style:solid;
+    border-color:$specialColor;
+    border-radius:5px;
+    font-family: $fontText;
+    color: $menuText;
+    font-size: 18px;
+    width: 190px;
+}

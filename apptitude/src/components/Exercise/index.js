@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
+
 import './index.scss';
 
-class Exercise extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default class Exercise extends Component {
 
     handleClick = () => {
         // console.log("TCL: Exercise -> handleClick -> this.props.id, this.props.pos", this.props.id, this.props.pos)
@@ -13,6 +11,7 @@ class Exercise extends Component {
 
     render() {
         let { img, name, intensity } = this.props;
+
         return (
             <div className='containerEx'>
                 <div onClick={this.handleClick} className='eachEx'>
@@ -24,5 +23,3 @@ class Exercise extends Component {
         )
     }
 }
-
-export default Exercise;

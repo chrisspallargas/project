@@ -31,7 +31,7 @@ export default class TrainingRoutine extends Component{
 
     async componentDidMount() {
         const routine = await Data.getObjectDetail('routines', this.props.match.params.id);
-        console.log("TCL: TrainingRoutine -> componentDidMount -> routine", routine);
+        //console.log("TCL: TrainingRoutine -> componentDidMount -> routine", routine);
         
 
         const detailsExercises=[];
@@ -97,12 +97,12 @@ export default class TrainingRoutine extends Component{
     }
     
     render() {
-       const {loading,currentExercise,routine,exerciseNumber,periodType,remainingTime} = this.state;
+       const {loading,currentExercise,periodType,remainingTime} = this.state;
         return (
             <div className='exercise-page'>
                 <Nav />
                 {loading && <div>loading</div>}
-                {!loading && periodType === "initial" && <button onClick={this.startRoutine} type="button">Start</button>}
+                {!loading && periodType === "initial" && <button onClick={this.startRoutine} type="button" className='butt-start'>Start</button>}
                 {!loading && periodType === "start" && <div>
                                                             <StartingCounter counter={remainingTime} />
                                                        </div>}
@@ -111,7 +111,7 @@ export default class TrainingRoutine extends Component{
                                                         <CounterDown counter={remainingTime}/>
                                                         </div>}
                 {!loading && periodType === 'break' && <div>
-                                                        <div>Break time. Next exercise in...</div>
+                                                        <div className='break-message'>Break time. Next exercise in...</div>
                                                         <CounterDown counter={remainingTime} />
                                                          </div>}
                 {!loading && periodType === 'end' && <div>
