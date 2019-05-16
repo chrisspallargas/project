@@ -4,44 +4,80 @@ import './index.scss';
 import Nav from '../../components/Nav';
 import FaveItem from '../../components/FaveItem';
 import Data from '../../services/Data';
+import withUser from '../../helpers/withUser';
 
 
 
-export default class MyFave extends Component{
-    constructor(props){
+class MyFave extends Component {
+    constructor(props) {
         super(props);
 
-        this.state={
-            user:null,
-            routines:null,
-            loading:true
+        this.state = {
+            user: null,
+            routines: [],
+            loading: true,
+            routinesId: null
         }
     }
 
-    componentDidMount = async () => {
-        const user = await Data.getObjectDetail('users','cDx1gnF6lEIBnHusKdnG');
-        
-        let routines = [];
-        for (let i=0; i<user.myRoutines.length; i++){
-            let routine = await Data.getObjectDetail('routines', user.myRoutines[i]);
-            routines.push(routine);
+    async componentDidMount() {
+        const user = this.props.userInfo;
+        if (user) {
+            this.setUserRoutines(user);
         }
-        this.setState({user, routines, loading: false});
+        //console.log(this.props.userInfo, "info de usuario Component did mount");
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.userInfo === null && this.props.userInfo !== null) {
+            const user = this.props.userInfo;
+            this.setUserRoutines(user)
+        }
+    }
+
+    metodoDelete = async(id) =>{
+        await Data.deleteObject('routines',id);
+        let {routines, routinesId}= this.state;
+        let index = routinesId.indexOf(id);
+
+        routines.splice(index,1);
+        routinesId.splice(index,1);
+
+        this.setState({routines,routinesId});
+
+    }
+
+    setUserRoutines = async (user) => {
+        let routines = [];
+        if (user.myRoutines) {
+            for (let i = 0; i < user.myRoutines.length; i++) {
+                //console.log(user.myRoutines[i]);
+                let routine = await Data.getObjectDetail('routines', user.myRoutines[i]);
+                routines.push(routine);
+            }
+            this.setState({ user, routines, routinesId: user.myRoutines, loading: false });
+        } else {
+            this.setState({loading:false});
+        }
     }
 
     render() {
-        const {user, routines, loading} = this.state;
+        const { user, routines, routinesId, loading } = this.state;
+        console.log("Render MyFave");
         return (
             <div className='my-fave'>
-                <Nav /> 
+                <Nav />
                 {loading && <div>loading</div>}
                 {!loading && <div>
-                <div className='faves'>My favorite routines</div>
-                {routines.map((elem)=>{
-                    return <FaveItem routine={elem}/> 
-                })}
-                </div>}  
+                    <div className='faves'>My favorite routines</div>
+                    {routines.length===0 && <p>No rutinas</p>} 
+                    {routines.map((elem, i) => {
+                        return <FaveItem idRoutine={routinesId[i]} metodoDelete={this.metodoDelete} routine={elem} />
+                    })}
+                </div>}
             </div>
         )
     }
 }
+
+export default withUser(MyFave);

@@ -22,6 +22,7 @@ $fontTitle:'Roboto', sans-serif;
 .break-message{
     display:flex;
     justify-content: center;
+    align-items:center;
     font-family: $fontTitle;
     color:$generalText;
     font-size:30px;
@@ -37,6 +38,34 @@ $fontTitle:'Roboto', sans-serif;
     border-radius:5px;
     font-family: $fontText;
     color: $menuText;
+    font-size: 18px;
+    width: 190px;
+}
+
+.final-message{
+    font-family: $fontTitle;
+    color:$specialColor;
+    font-size:2.8em;
+    margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.final-block{
+    display:flex;
+    flex-direction: column;
+    margin-top:30px;
+}
+
+.final-butt{
+    text-align: -webkit-center;
+    margin: 4px 92px;
+    background-color: rgb(204, 203, 203);
+    border-style: solid;
+    border-radius: 5px;
+    font-family: "Roboto Slab", serif;
+    color: #222222;
     font-size: 18px;
     width: 190px;
 }

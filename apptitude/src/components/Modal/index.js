@@ -18,7 +18,7 @@ export default class Modal extends React.Component {
         return (
             <div>
                 <div className='linkCreate'>
-                    <Link to='/random-page'>
+                    <Link to={'/random-page'}>
                         <button type='button'
                             className='buttCreate'
                             onClick={this.show}>
@@ -26,8 +26,6 @@ export default class Modal extends React.Component {
                         </button>
                     </Link>
                 </div>
-
-                
             </div>
         )
     }

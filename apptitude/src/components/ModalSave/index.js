@@ -44,7 +44,7 @@ export default class ModalSave extends React.Component {
         return (
             <div>
 
-                <button className='buttSave' type='button' onClick={this.show}>Save</button>
+                <button className='buttSave' type='button' onClick={this.show}>{this.props.text}</button>
                 <Rodal customStyles={{ backgroundColor: "#E6E6E6", borderRadius: '25px' }}
                     animation={'flip'} width={250}
                     height={250} visible={this.state.visible} onClose={this.hide}>

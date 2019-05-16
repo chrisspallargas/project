@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './index.scss';
+import Auth from '../../services/Auth';
+import Data from '../../services/Data';
+import {withRouter} from 'react-router-dom';
 
 class SignIn extends Component {
     constructor(props) {
@@ -15,18 +18,45 @@ class SignIn extends Component {
 
 
     //Si el usuario existe le salta mensaje y si no llama a la funcion crear usuario
-    onSubmit = (event) => {
+    
+    componentDidMount() {
+        Auth.registerAuthObserver((user) => {
+          if (user) {
+            // User is signed in.
+            const { name, email } = this.state;
+            if(name && email){
+                const success = Data.addObjectWithId('users', user.uid, { 
+                    name,  
+                    email,
+                    uid: user.uid 
+                });
+    
+                if(success) {
+                    console.log("GUARDAR NUEVO USUARIO EN REDUX");
+                   
+            }
+        }
+            
+          } else {
+            console.log("OJO: no hay usuario")
+    
+          }
+
+          this.props.history.push('/');
+        })
+      }
+    
+    onSubmit = async(event) => {
         event.preventDefault();
-        console.log("OnSubmit SignIn");
-        const { email, name, password } = this.state;
-        let exists = this.props.auth.userExists(email);
-        console.log(exists);
-        if (exists) {
-            document.getElementById("signin-form").reset();
-            this.setState({ message: "You are already registered" });
-        } else {
-            this.props.auth.createUser(name, email, password);
-            // console.log(this.props.auth.users);
+        const { email, password } = this.state;
+    
+        this.setState({message: ''});
+    
+        const error = await Auth.signup(email, password)
+        this.props.history.push('/option-page');
+    
+        if(error) {
+          this.setState({message: Auth.getErrorMessage(error)});
         }
     }
 
@@ -84,4 +114,4 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

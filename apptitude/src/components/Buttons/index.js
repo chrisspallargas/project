@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ModalSave from '../ModalSave';
 import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
+import Data from '../../services/Data';
 
 import './index.scss';
 
@@ -30,9 +31,12 @@ class Buttons extends Component {
     }
 
     manageStart = async() =>{
-        await this.props.metodoSave("unsaved");
+        if(!this.props.saved){
+            await this.props.metodoSave("unsaved");
+        }
+        let idRoutine=await Data.getUltimaRoutine(this.props.user);
         // this.props.history.push('/training-routine/'+{user.myRoutines[últimapos]})
-        this.props.history.push('/training-routine/3JJ2w0vKzWH3dvOLDnjj')
+        this.props.history.push('/training-routine/'+idRoutine);
     }
 
     render() {
@@ -41,6 +45,7 @@ class Buttons extends Component {
             <div className='general-buttons'>
     
                 {this.props.selectedLength>0 && !this.props.saved && <ModalSave
+                    text={"Save"}
                     visible={visible}
                     onClose={this.onCloseModal}
                     metodoSave={this.props.metodoSave}

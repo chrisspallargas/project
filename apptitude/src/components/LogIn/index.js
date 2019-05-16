@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import'./index.scss';
+import './index.scss';
+import Auth from '../../services/Auth';
+import {withRouter} from 'react-router-dom';
 
 class LogIn extends Component {
     constructor(props) {
@@ -12,16 +14,24 @@ class LogIn extends Component {
         }
     }
 
-    onSubmit = (event) => {
-        event.preventDefault();
-        // console.log("OnSubmit LogIn");
 
+    onSubmit = async(event) => {
+        event.preventDefault();
         const { email, password } = this.state;
-        //console.log("email: "+ email +" y password: "+ password);
-        let correct = this.checkPassword(email, password);
-        if (!correct) {
-            document.getElementById("login-form").reset();
-            this.setState({ message: "Incorrect info, please try again" });
+    
+        this.setState({message: ''});
+    
+        if(!email || !password) {
+          this.setState({message: 'Email & Password required'});
+          return;
+        }
+    
+        const error = await Auth.login(email, password)
+    
+        if(error) {
+          this.setState({message: Auth.getErrorMessage(error)});
+        } else {
+            this.props.history.push('/option-page');
         }
     }
 
@@ -33,11 +43,6 @@ class LogIn extends Component {
         this.setState({ password: event.target.value, message: '' });
     }
 
-    checkPassword = (email, password) => {
-        let result = this.props.auth.passIsCorrect(email, password);
-        console.log(result);
-        return result;
-    }
 
     render() {
         const { message } = this.state;
@@ -61,4 +66,4 @@ class LogIn extends Component {
     }
 }
 
-export default LogIn;
+export default withRouter(LogIn);

@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
 //import '../node_modules/react-tiny-tabs/dist/index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Auth from './services/Auth';
+import Data from './services/Data';
 import './App.scss';
 import Home from './pages/Home';
 import OptionPage from './pages/OptionPage';
 import PickingPage from './pages/PickingPage';
 import RandomPage from './pages/RandomPage';
 import TrainingRoutine from './pages/TrainingRoutine';
-import EndPage from './pages/EndPage';
 import MyFave from './pages/MyFave';
 import Profile from './pages/Profile';
-import Menu from './pages/Menu';
+import { connect } from 'react-redux'
+import { setUserInfo } from '../src/redux/actions/userAction';
 
 
 class App extends Component {
+  componentDidMount() {
+    console.log('component did mount app')
+    Auth.registerAuthObserver(async (user) => {
+      if (user) {
+        console.log('User is signed in')
+        const userDetail = await Data.getObjectDetail('users', user.uid);
+        
+        if(userDetail) {
+          this.props.setUserInfo(userDetail)
+          console.log("seteamos la información de user")
+        } else {
+          console.log("ESPERAAAAAA me estoy registrando");
+        }
+        
+      } else {
+        console.log('User is signed out')
+      }
+      
+    })
+  }
+
   render() {
+    
+    console.log("renderApp");
+
+    
     return (
       <div className="App">
         <Router>
           <Switch>
-          <Route path='/menu' component={Menu}></Route>
           <Route path='/profile' component={Profile}></Route>
             <Route path='/favorites' component={MyFave}></Route>
-            <Route path='/end' component={EndPage}></Route>
             <Route path='/training-routine/:id' component={TrainingRoutine}></Route>
             <Route path='/random-page' component={RandomPage}></Route>
             <Route path='/picking-page' component={PickingPage}></Route>
@@ -35,4 +60,17 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.userReducer.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserInfo: (user) => dispatch(setUserInfo(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

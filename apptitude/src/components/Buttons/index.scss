@@ -15,19 +15,20 @@ $fontTitle:'Roboto', sans-serif;
     display:flex;
     flex-direction: column;
     width: 75%;
-    height: 90px;
-    justify-content: space-evenly; 
-    margin: 70px auto; 
+    // height: 90px;
+    // justify-content: space-evenly; 
+    margin: -18px auto; 
     align-items: center; 
 }
 
 .buttNormal{
-    background-color:rgb(97, 96, 96);
-    border-style:solid;
-    border-color:rgb(175, 174, 174);
-    border-radius:5px;
-    font-family: $fontText;
-    color: $menuText;
+    text-align: -webkit-center;
+    margin: 2px 92px;
+    background-color: rgb(204, 203, 203);
+    border-style: solid;
+    border-radius: 5px;
+    font-family: "Roboto Slab", serif;
+    color: #222222;
     font-size: 18px;
     width: 190px;
 }

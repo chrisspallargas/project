@@ -18,7 +18,7 @@ $fontTitle:'Roboto', sans-serif;
 }
 
 p{
-  margin:0 0 5px 15px;
+  margin:0 0 10px 20px;
   font-family:$fontText;
   color:$generalText;
 }
@@ -32,6 +32,10 @@ p{
   font-family:$fontText;
   color:$generalText;
   font-size:18px;
+}
+
+ div > div > div > .map{
+  margin-top:-15px;
 }
 
 body {
@@ -53,19 +57,8 @@ body {
         display: table;
         .tab-nav {
           white-space: nowrap;
-          // display: table-caption;
-          // caption-side: top;
-          
-  
-          // .tab-nav-item {
-          //   display: inline-table;
-          // }
         }
-        // &>.tab-panel {
-        //   display: table-caption;
-        //   caption-side: bottom;
         
-        // }
       }
   
       &.bottom-nav {
@@ -104,13 +97,7 @@ body {
         
       }
     }
-  
-    // .tab-panel {
-    //   position: relative;
-    //   border-top: 1px solid #BBB;
-    //   z-index: 0;
-      
-    // }
+
   
     .bottom-nav {
       .tab-nav-item {
@@ -122,18 +109,6 @@ body {
           
         }
       }
-  
-    //   .tab-panel {
-    //     border-top: none;
-    //     border-bottom: 1px solid #BBB;
-       
-        
-    //   }
-  
-    //   .tab-nav {
-    //     top: -1px;
-        
-    //   }
     }
   
     .tab-panel-item {
@@ -143,44 +118,13 @@ body {
      
       
       &.active {
-        display: flex;
+        display: block;
         // flex-direction: column;
         
       }
     }
   
-    // &.fade {
-    //   .tab-panel-item {
-    //     -webkit-transition: all 0.25s ease-out;
-    //     -moz-transition: all 0.25s ease-out;
-    //     -o-transition: all 0.25s ease-out;
-    //     transition: all 0.25s ease-out;
-    //     opacity: 0;
-    //     display: block;
-    //     position: absolute;
-    //   }
-  
-    //   &.fadeOut {
-    //     .tab-panel-item.active {
-    //       position: relative;
-    //       opacity: 0;
-    //     }
-    //   }
-  
-    //   &.fadeIn {
-    //     .tab-panel-item.active {
-    //       position: relative;
-    //       opacity: 1;
-    //     }
-    //   }
-    // }
-  
-    // .img-left {
-    //   float: left;
-    //   padding: 0 12px 0px 0;
-      
-    // }
-  
+    
     //---------------------------------------------------------Contenido donde van las pics
     p {
       margin-top: 0;
@@ -188,15 +132,6 @@ body {
       display:flex;
       
     }
-  
-    // .tab-icon {
-    //   width: 20px;
-    //   height: 15px;
-    //   position: relative;
-    //   top: 4px;
-    //   left: -2px;
-     
-    // }
   }
 
 .content{
@@ -209,5 +144,15 @@ body {
 .exercice-tabs > div > div > .slick-slider{
   width: 80%;
   margin: 0 auto;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color:$specialColor;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 

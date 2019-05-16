@@ -14,8 +14,7 @@ $fontTitle:'Roboto', sans-serif;
 .questions-block{
     display:flex;
     justify-content:space-around;
-    margin:10px;
-    margin-top:45px;
+    margin:7px;
 }
 
 .minutes{
@@ -26,6 +25,6 @@ $fontTitle:'Roboto', sans-serif;
 .quest{
     font-family:$fontText;
     color:$generalText;
-    font-size:16px;
-    margin:0 8px;
+    font-size:14px;
+    margin:3px 8px;
 }

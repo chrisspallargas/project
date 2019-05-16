@@ -13,10 +13,14 @@ $specialColor:#E6003F;
 $fontText:'Roboto Slab', serif;
 $fontTitle:'Roboto', sans-serif;
 
+
 .routine{
     display:flex;
-    flex-wrap: wrap;
+    margin-top:10px;
+    //flex-wrap: wrap;
     width:100%;
+    height: 140px;
+    justify-content: center;
 
     .fakeDrag{
         width: 100px;
@@ -36,9 +40,18 @@ $fontTitle:'Roboto', sans-serif;
     }
 }
 
-.fakeDrag{
-    width: fit-content;    
+#separador-container{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    #separador{
+        height: 1px;
+        border-bottom-style: solid;
+        border-bottom-width: 0.5px;
+        width:80%;
+    }
 }
+
 
 .newFakeDrag{
     width:100px;

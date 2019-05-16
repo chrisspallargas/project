@@ -36,14 +36,6 @@ class Questions extends Component {
                         <option className='min-value' value="30">30</option>
                     </select>
                 </div>
-                {/* <div className='YesNo'>
-                    <div className='quest'>Do you want to repeat exercices in series?</div>
-                    <form className='form-yes-no'>
-                        <label><input type="checkbox" name="yes"/> Yes </label>
-                        <label><input type="checkbox" name="no"/> No </label><br/>
-                        <input type="submit" value="Ok!" className='form-ok-butt'/>
-                    </form>
-                </div> */}
             </div>
         )
     }

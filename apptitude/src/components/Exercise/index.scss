@@ -22,7 +22,7 @@ $fontTitle:'Roboto', sans-serif;
     border-color: #E6003F;
     border-width: 0.5px;
     border-radius: 10px;
-    margin: 5px;
+    margin: 5px 5px;
 }
 
 .eachEx{
@@ -32,8 +32,3 @@ $fontTitle:'Roboto', sans-serif;
     width:369px;
 }
 
-.tabs-container .tab-panel-item.active {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}

@@ -46,26 +46,7 @@ export default class ExerciseTabs extends Component {
 
         return (
             <div className='exercice-tabs'>
-                <div>
-                    {!loading && <div><Slider {...settings}>{
-                        this.arrayArms.map((exercise, i) => {
-                            return (
-                                <Exercise
-                                    key={i}
-                                    pos={i}
-                                    id={exercise.id}
-                                    img={exercise.img}
-                                    name={exercise.name}
-                                    intensity={exercise.intensity}
-                                    metodo={this.props.metodo}
-                                />
-                            );
-                        })
-                    }
 
-                    </Slider></div>
-                    }
-                </div>
                 <p>Choose the exercices you want:</p>
                 <Tabs className="theme-default">
                     <Nav>
@@ -78,80 +59,117 @@ export default class ExerciseTabs extends Component {
                     <Content className='content'>
                         <div>
                             {loading && <div>loading</div>}
+                            <div>
+                                {!loading && <div className='map'><Slider {...settings}>{
+                                    this.arrayArms.map((exercise, i) => {
+                                        return (
+                                            <Exercise
+                                                key={i}
+                                                pos={i}
+                                                id={exercise.id}
+                                                img={exercise.img}
+                                                name={exercise.name}
+                                                intensity={exercise.intensity}
+                                                metodo={this.props.metodo}
+                                            />
+                                        );
+                                    })
+                                }
 
-
-
-
-
-
+                                </Slider></div>
+                                }
+                            </div>
                         </div>
                         <div>
                             {loading && <div>loading</div>}
-                            {!loading && this.arrayLegs.map((exercise, i) => {
-                                return (
-                                    <Exercise
-                                        key={i}
-                                        pos={i}
-                                        id={exercise.id}
-                                        img={exercise.img}
-                                        name={exercise.name}
-                                        intensity={exercise.intensity}
-                                        metodo={this.props.metodo}
-                                    />
-                                );
-                            })
-                            }
+                            <div>
+                                {!loading && <div><Slider {...settings}>{
+                                    this.arrayLegs.map((exercise, i) => {
+                                        return (
+                                            <Exercise
+                                                key={i}
+                                                pos={i}
+                                                id={exercise.id}
+                                                img={exercise.img}
+                                                name={exercise.name}
+                                                intensity={exercise.intensity}
+                                                metodo={this.props.metodo}
+                                            />
+                                        );
+                                    })
+                                }
+
+                                </Slider></div>
+                                }
+                            </div>
                         </div>
                         <div>
                             {loading && <div>loading</div>}
-                            {!loading && this.arrayButtocks.map((exercise, i) => {
-                                return (
-                                    <Exercise
-                                        key={i}
-                                        pos={i}
-                                        id={exercise.id}
-                                        img={exercise.img}
-                                        name={exercise.name}
-                                        intensity={exercise.intensity}
-                                        metodo={this.props.metodo}
-                                    />
-                                );
-                            })
-                            }
+                            <div>
+                                {!loading && <div><Slider {...settings}>{
+                                    this.arrayButtocks.map((exercise, i) => {
+                                        return (
+                                            <Exercise
+                                                key={i}
+                                                pos={i}
+                                                id={exercise.id}
+                                                img={exercise.img}
+                                                name={exercise.name}
+                                                intensity={exercise.intensity}
+                                                metodo={this.props.metodo}
+                                            />
+                                        );
+                                    })
+                                }
+
+                                </Slider></div>
+                                }
+                            </div>
                         </div>
                         <div>
                             {loading && <div>loading</div>}
-                            {!loading && this.arrayAbs.map((exercise, i) => {
-                                return (
-                                    <Exercise
-                                        key={i}
-                                        pos={i}
-                                        id={exercise.id}
-                                        img={exercise.img}
-                                        name={exercise.name}
-                                        intensity={exercise.intensity}
-                                        metodo={this.props.metodo}
-                                    />
-                                );
-                            })
-                            }
+                            <div>
+                                {!loading && <div><Slider {...settings}>{
+                                    this.arrayAbs.map((exercise, i) => {
+                                        return (
+                                            <Exercise
+                                                key={i}
+                                                pos={i}
+                                                id={exercise.id}
+                                                img={exercise.img}
+                                                name={exercise.name}
+                                                intensity={exercise.intensity}
+                                                metodo={this.props.metodo}
+                                            />
+                                        );
+                                    })
+                                }
+
+                                </Slider></div>
+                                }
+                            </div>
                         </div>
                         <div>
                             {loading && <div>loading</div>}
-                            {!loading && this.arrayCardio.map((exercise, i) => {
-                                return (
-                                    <Exercise
-                                        key={i}
-                                        pos={i}
-                                        id={exercise.id}
-                                        img={exercise.img}
-                                        name={exercise.name}
-                                        intensity={exercise.intensity}
-                                        metodo={this.props.metodo}
-                                    />
-                                );
-                            })
-                            }
+                            <div>
+                                {!loading && <div><Slider {...settings}>{
+                                    this.arrayCardio.map((exercise, i) => {
+                                        return (
+                                            <Exercise
+                                                key={i}
+                                                pos={i}
+                                                id={exercise.id}
+                                                img={exercise.img}
+                                                name={exercise.name}
+                                                intensity={exercise.intensity}
+                                                metodo={this.props.metodo}
+                                            />
+                                        );
+                                    })
+                                }
+                                </Slider></div>
+                                }
+                            </div>
                         </div>
                     </Content>
                 </Tabs>
@@ -161,4 +179,6 @@ export default class ExerciseTabs extends Component {
         )
     }
 }
+
+
 

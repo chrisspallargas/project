@@ -486,15 +486,24 @@ export default class Data {
         return selectedElement;
       }
 
+    static async getUltimaRoutine(user){
+         let userInfo=await this.getObjectDetail("users", user);
+         return userInfo.myRoutines[userInfo.myRoutines.length-1];
+    }
+
 
     static async addRoutineToUser(nameRoutine, idRoutine, userId){
       const db = firebase.firestore();
-      let success = false;
+      let success = true;
 
       //Este código guarda el nombre e id de la rutina en la collection users, y por tanto
         //no debe guardarse en esa collection, si no me pasan Id de user.
 
         let user=await this.getObjectDetail("users",userId);
+        if(!user.myRoutines){
+          user.myRoutines=[];
+          user.myRoutinesNames=[];
+        }
         user.myRoutines.push(idRoutine);
         user.myRoutinesNames.push(nameRoutine);
 
@@ -513,7 +522,7 @@ export default class Data {
         const db = firebase.firestore();
         let success = false;
         let idRoutine = null;
-    
+        
         //Este código guarda la rutina en la collection de routines
         try {
           const docRef = await db.collection('routines').add({
@@ -529,15 +538,52 @@ export default class Data {
         } catch (err) {
           console.log("TCL: DataService -> addContact -> err", err)
         }
-
+        
         //Este código guarda el nombre e id de la rutina en la collection users, y por tanto
         //no debe guardarse en esa collection, si no me pasan Id de user.
+        console.log(success, idRoutine, userId);
         if(success && userId){
-            await this.addRoutineToUser(name,idRoutine,userId);
+        
+            success = await this.addRoutineToUser(name,idRoutine,userId);
+
         }
         
     
         return success;
       }  
+    
+      static async addObjectWithId(collection, objId, data) {
+        return await Data.updateDetail(collection, objId, data)
+      }
+    
+      static async updateDetail(collection, id, data) {
+        const db = firebase.firestore();
+        let success = true;
+    
+        try {
+          await db.collection(collection).doc(id).set(data, {merge: true});
+        } catch (err) {
+          success = false;
+          console.log("TCL: DataService -> updateDetail -> err", err)
+        }
+    
+        return success;
+      }
+
+    static async deleteObject(collection, id){
+      
+        const db = firebase.firestore();
+        let success = true;
+    
+        try {
+          await db.collection(collection).doc(id).delete();
+    
+        } catch (err) {
+          success = false;
+          console.log("TCL: DataService -> deleteContact -> err", err)
+        }
+    
+        return success;
+    }
     
 }

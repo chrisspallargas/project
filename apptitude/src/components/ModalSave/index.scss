@@ -43,4 +43,13 @@ $fontTitle: "Roboto", sans-serif;
   color: $menuText;
   font-size: 18px;
   width: 190px;
+  margin: 4px 92px;
+}
+
+.rodal, .rodal-mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
 }

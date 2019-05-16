@@ -1,4 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+
+
 .random-page{
     background-color:#E6E6E6;
-    height:100vh;
+    height:190vh;
   }
+
+.minutes2{
+  display:flex;
+  margin-top: 30px;
+  height:fit-content;
+}
+
+.quest2{
+  font-family:$fontText;
+  color:$generalText;
+  font-size:16px;
+  margin:0 2px;
+}
+
+#value-range{
+  font-family:$fontText;
+  color:$generalText;
+}
+
+.form-ok-butt {  
+  text-align: -webkit-center;
+  margin: 10px 55px;
+  background-color:$specialColor;
+  border-style:solid;
+  border-radius:5px;
+  font-family: $fontText;
+  color: $menuText;
+  font-size: 18px;
+  width: 190px;
+}
+
+.random-message{
+  font-family:$fontText;
+  color:$generalText;
+  font-size:17px;
+  display:flex;
+  width:100%;
+  justify-content: center;
+  margin:20px;
+}
+
+.routine2{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fakeDrag2{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0 5px;
+
+    .containerEx{
+        width:100px;
+
+        .eachEx{
+            width: 100px;
+        }
+    }
+    
+}
+
+.random-butt {
+  text-align: -webkit-center;
+  margin: 4px 92px;
+  background-color: rgb(204, 203, 203);
+  border-style: solid;
+  border-radius: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #222222;
+  font-size: 18px;
+  width: 190px;
+}

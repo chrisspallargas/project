@@ -8,6 +8,7 @@ import ButtonComponent from '../../components/ButtonComponent';
 import Buttons from '../../components/Buttons';
 import './index.scss';
 import Slider from "react-slick";
+import withUser from '../../helpers/withUser';
 
 
 class PickingPage extends Component {
@@ -18,8 +19,7 @@ class PickingPage extends Component {
             selected: [],
             breakTime: 10,
             exerciseTime: 10,
-            userId:"cDx1gnF6lEIBnHusKdnG",
-            saved:false
+            saved: false
 
         }
     }
@@ -31,7 +31,7 @@ class PickingPage extends Component {
         // console.log("Delete " + id);
         let { selected } = this.state;
         let updatedSelected = selected.slice();
-    //  console.log(selected);
+        //  console.log(selected);
 
         updatedSelected.splice(pos, 1);
 
@@ -39,14 +39,14 @@ class PickingPage extends Component {
         this.setState({ selected: updatedSelected });
     }
 
-    metodoEmpty = () =>{
+    metodoEmpty = () => {
 
     }
 
     //Añadir el ejercicio con id a seleccionados
-    onAddExercise = async(id, pos) => {
-        
-        let exerciseId = await Data.getObjectDetail('exercises',id);
+    onAddExercise = async (id, pos) => {
+
+        let exerciseId = await Data.getObjectDetail('exercises', id);
         // console.log(exerciseId.img +" "+exerciseId.name+" "+exerciseId.intensity);
         let updatedSelected = this.state.selected;
         updatedSelected.push({ id, img: exerciseId.img, name: exerciseId.name, intensity: exerciseId.intensity })
@@ -54,37 +54,40 @@ class PickingPage extends Component {
     }
 
     metodoBreak = (breakTime) => {
-		//console.log("TCL: PickingPage -> metodoBreak -> breakTime",breakTime);
-        this.setState({breakTime});
+        //console.log("TCL: PickingPage -> metodoBreak -> breakTime",breakTime);
+        this.setState({ breakTime });
     }
 
     metodoExerc = (exerciseTime) => {
-		//console.log("TCL: PickingPage -> metodoExerc -> exerciseTime", exerciseTime)
-        this.setState({exerciseTime});
+        //console.log("TCL: PickingPage -> metodoExerc -> exerciseTime", exerciseTime)
+        this.setState({ exerciseTime });
     }
 
     metodoSave = async (name) => {
         // Aquí irá el comportamiento del boton save del pop up, que gaurdará todo 
         // los ejercicios del this.state.selected
 
-        let {selected, exerciseTime, breakTime,userId} = this.state;
-        let durationTotal = (selected.length * exerciseTime) + (breakTime*(selected.length-1));
-        let arrExercises = [];
-        for(let i=0;i<selected.length;i++){
-            arrExercises.push({idExercise:selected[i].id, duration:exerciseTime});
-        }
-        let data = {duration:durationTotal, exercices:arrExercises, breakTime:breakTime};
-        console.log(data);
-        console.log(name);
-        let done=await Data.addRoutine(name,data,userId);
-        if(done){
-            this.setState({saved:true});
-        }
+        let { selected, exerciseTime, breakTime, saved } = this.state;
+
+            let durationTotal = (selected.length * exerciseTime) + (breakTime * (selected.length - 1));
+            let arrExercises = [];
+            for (let i = 0; i < selected.length; i++) {
+                arrExercises.push({ idExercise: selected[i].id, duration: exerciseTime });
+            }
+            let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
+            console.log(data);
+            console.log(name);
+            let done = await Data.addRoutine(name, data, this.props.userInfo.uid);
+            if (done) {
+                this.setState({ saved: true });
+            }
+
+        
     }
 
     metodoDiscard = () => {
         //Aquí simplemente se volverá al principio de la app
-        this.props.history.push('/menu');
+        this.props.history.push('/option-page');
     }
 
 
@@ -107,14 +110,16 @@ class PickingPage extends Component {
         return (
             <div className='option-page'>
                 <Nav />
+                {/* <div>Routine:</div> */}
                 <div className="routine">
-                
+                    {selected.length===0 && <div> Add an exercise to your routine</div>}
+                    {/* <Slider {...settings}> */}
                     {selected.map((exercise, i) => {
                         return (
                             <div className='fakeDrag'>
-                            {/* <Slider {...settings}> */}
+
                                 <Exercise
-                                    key={exercise.id+i}
+                                    key={exercise.id + i}
                                     pos={i}
                                     id={exercise.id}
                                     img={exercise.img}
@@ -123,21 +128,26 @@ class PickingPage extends Component {
                                     metodo={this.metodoEmpty}
                                 />
                                 <ButtonComponent key={exercise.id} pos={i} id={exercise.id} metodo={this.metodoDelete} />
-                                {/* </Slider> */}
+
                             </div>
                         );
                     })}
-                  
+                    {/* </Slider> */}
+
                 </div>
-                
-                <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc}/>
+                <div id="separador-container"><div id="separador"></div></div>
+
+                <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                 <ExerciseTabs metodo={this.onAddExercise} />
-                <Buttons metodoSave={this.metodoSave} selectedLength={this.state.selected.length} saved={this.state.saved} metodoDiscard={this.metodoDiscard}/>
+                {this.props.userInfo!==null && <Buttons user={this.props.userInfo.uid} 
+                        metodoSave={this.metodoSave} 
+                        selectedLength={this.state.selected.length} 
+                        saved={this.state.saved} 
+                        metodoDiscard={this.metodoDiscard} />}
 
             </div>
         )
     }
 }
 
-export default PickingPage;
-
+export default withUser(PickingPage);

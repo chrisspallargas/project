@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import Modal from '../Modal';
 
 
-class Create extends Component {
+export default class Create extends Component {
     constructor(props) {
         super(props);
 
@@ -36,12 +36,6 @@ class Create extends Component {
                     onClick={this.createRoutine}>
                     Create your own routine
                         </button></Link>
-
-                {/* <div className='linkCreate'><button type='button'
-                    className='buttCreate'
-                    onClick={this.createRoutine}>
-                    Make it Random!
-                        </button></div> */}
                 <Modal
                     visible={visible}
                     onClose={this.onCloseModal}
@@ -50,18 +44,3 @@ class Create extends Component {
         )
     }
 }
-
-export default Create;
-
-//poop up ke funciona pero no puedo poner estilos.
-
-{/* <Popup className='pop' trigger={<button
-    className='buttCreate'>
-    Make it Random! </button>}
-    position='right-center'>
-    
-    <div>
-        <Questions />
-        <MuscularGroupOptions />
-    </div>
-</Popup> */}
