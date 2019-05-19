@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import './index.scss';
+import Nav from '../../components/Nav';
 import Buttons from '../../components/Buttons';
 import ButtonComponent from '../../components/ButtonComponent';
 import Exercise from '../../components/Exercise';
@@ -38,7 +38,7 @@ class RandomPage extends Component {
             valueRange: 25,
             loading: true,
             visible: false,
-            saved:false
+            saved: false
         }
     }
 
@@ -64,22 +64,28 @@ class RandomPage extends Component {
         let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
         // console.log(data);
         // console.log(name);
-        let done = await Data.addRoutine(name, data, this.props.userInfo.uid);
-        if(done){this.setState({saved:true});}
+        let { success } = await Data.addRoutine(name, data, this.props.userInfo.uid);
+        if (success) {
+            this.setState({ saved: true, visible: false });
+            // userInfo.myRoutinesNames.push(name);
+            // userInfo.myRoutines.push(idRoutine);
+            // this.props.setUserInfo(userInfo);
+        }
+
     }
 
-    start = async() =>{
-        if(!this.state.saved){
+    start = async () => {
+        if (!this.state.saved) {
             await this.metodoSave("unsaved");
         }
-        let idRoutine=await Data.getUltimaRoutine(this.props.userInfo.uid);
+        let idRoutine = await Data.getUltimaRoutine(this.props.userInfo.uid);
         // this.props.history.push('/training-routine/'+{user.myRoutines[últimapos]})
-        this.props.history.push('/training-routine/'+idRoutine);
+        this.props.history.push('/training-routine/' + idRoutine);
     }
 
     onMuscular = () => {
         //console.log(this.arrayArms, this.arrayLegs, this.arrayButtocks, this.arrayAbs, this.arrayCardio);
-        let { muscularGroups, valueRange} = this.state;
+        let { muscularGroups, valueRange } = this.state;
         let toRandom = [];
         for (let i = 0; i < muscularGroups.length; i++) {
             if (muscularGroups[i] === 'arms') {
@@ -106,7 +112,7 @@ class RandomPage extends Component {
             randomSelected.push(toRandom[Math.floor(Math.random() * toRandom.length)]);
         }
 
-        this.setState({ randomSelected, showModal: false,saved:false });
+        this.setState({ randomSelected, showModal: false, saved: false });
     }
 
     show = () => {
@@ -128,6 +134,9 @@ class RandomPage extends Component {
     checkedGroup = (group) => {
         let { muscularGroups } = this.state;
         let newMuscularGroups = muscularGroups.slice();
+        // if(!group){
+        //     this.setState({message: 'Please, choose an option'});
+        // }
         if (!newMuscularGroups.includes(group)) {
             newMuscularGroups.push(group);
         } else {
@@ -145,16 +154,17 @@ class RandomPage extends Component {
 
     metodoEmpty = () => { }
 
-    discard = () =>{
+    discard = () => {
         this.props.history.push('/option-page');
     }
 
 
     render() {
-        let { randomSelected, showModal, valueRange, visible, saved } = this.state;
+        let { randomSelected, showModal, valueRange, visible, saved, muscularGroups } = this.state;
         return (
             <div className='random-page'>
                 <Nav />
+                <div className='sub-random'>
                 <div className="routine2">
                     <div className='random-message'>These are your random exercises</div>
                     {randomSelected.map((exercise, i) => {
@@ -169,7 +179,6 @@ class RandomPage extends Component {
                                     intensity={exercise.intensity}
                                     metodo={this.metodoEmpty}
                                 />
-                                {/* <ButtonComponent metodo={this.metodoDelete} /> */}
                             </div>
                         );
                     })}
@@ -188,18 +197,19 @@ class RandomPage extends Component {
                     <div>
                         <div className='minutes2'>
                             <div className='quest2'>Number of exercises:</div>
-                            <input type="range" className='range' 
-                                    onChange={this.changeRange} 
-                                    min="1" max="25" step="1">
-                                    </input>
+                            <input type="range" className='range'
+                                onChange={this.changeRange}
+                                min="1" max="25" step="1">
+                            </input>
                             <div id="value-range">{valueRange}</div>
                         </div>
                         <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                         <MuscularGroupOptions checkedGroup={this.checkedGroup} />
                         <button type="button" value="Ok!" className='form-ok-butt' onClick={this.onMuscular}>Ok!</button>
+                        {/* {!muscularGroups && this.exercise.id==='undefined' && <div className='message'>Please, choose a muscular group </div>} */}
                     </div>
                 </Rodal>
-
+                </div>
             </div>
         )
     }

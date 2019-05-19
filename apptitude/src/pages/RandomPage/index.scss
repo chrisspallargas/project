@@ -14,8 +14,14 @@ $fontTitle:'Roboto', sans-serif;
 
 .random-page{
     background-color:#E6E6E6;
-    height:190vh;
+    height:fit-content;
   }
+
+.sub-random{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
 
 .minutes2{
   display:flex;
@@ -81,8 +87,8 @@ $fontTitle:'Roboto', sans-serif;
 }
 
 .random-butt {
-  text-align: -webkit-center;
-  margin: 4px 92px;
+  text-align: center;
+  margin: 0.2vw 24vw;
   background-color: rgb(204, 203, 203);
   border-style: solid;
   border-radius: 5px;

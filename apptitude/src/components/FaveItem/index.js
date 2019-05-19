@@ -14,7 +14,7 @@ class FaveItem extends Component{
     }
 
     render() {
-       
+       console.log(this.props.routine);
         return (
             <div className='each-fave'>
                 <div>{this.props.routine.name}</div>

@@ -44,7 +44,6 @@ class MyFave extends Component {
         routinesId.splice(index,1);
 
         this.setState({routines,routinesId});
-
     }
 
     setUserRoutines = async (user) => {
@@ -70,7 +69,7 @@ class MyFave extends Component {
                 {loading && <div>loading</div>}
                 {!loading && <div>
                     <div className='faves'>My favorite routines</div>
-                    {routines.length===0 && <p>No rutinas</p>} 
+                    {routines.length===0 && <p>There are no routines yet</p>} 
                     {routines.map((elem, i) => {
                         return <FaveItem idRoutine={routinesId[i]} metodoDelete={this.metodoDelete} routine={elem} />
                     })}

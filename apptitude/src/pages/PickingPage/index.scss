@@ -56,3 +56,23 @@ $fontTitle:'Roboto', sans-serif;
 .newFakeDrag{
     width:100px;
 }
+
+.routine > .slick-slider{
+    width: 80%;
+    margin: 0 auto;
+    // display:flex;
+
+    .slick-slide{
+        width:100px;   
+    }
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color:$specialColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }

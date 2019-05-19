@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav';
 import './index.scss';
+import Nav from '../../components/Nav';
 
 
 export default class Profile extends Component {

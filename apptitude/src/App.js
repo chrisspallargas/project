@@ -15,6 +15,7 @@ import { connect } from 'react-redux'
 import { setUserInfo } from '../src/redux/actions/userAction';
 
 
+
 class App extends Component {
   componentDidMount() {
     console.log('component did mount app')
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     
-    console.log("renderApp");
+    console.log(window.location);
 
     
     return (

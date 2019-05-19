@@ -10,9 +10,14 @@ $specialColor:#E6003F;
 $fontText:'Roboto Slab', serif;
 $fontTitle:'Roboto', sans-serif;
 
+.principal-container{
+  display:flex;
+  justify-content: center;
+}
+
 
 .principal{
-    width:100%;
+    width:450px;
     height: 30vh;
     margin-top: -25px;
   }
@@ -38,3 +43,6 @@ $fontTitle:'Roboto', sans-serif;
     margin-bottom: 50px;
     justify-content: center;
   }
+
+
+ 

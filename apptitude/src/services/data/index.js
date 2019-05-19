@@ -549,7 +549,7 @@ export default class Data {
         }
         
     
-        return success;
+        return {success, idRoutine};
       }  
     
       static async addObjectWithId(collection, objId, data) {

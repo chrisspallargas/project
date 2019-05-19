@@ -14,9 +14,15 @@ $fontTitle:'Roboto', sans-serif;
 .exercise-page{
     flex-direction: column;
     background-color: #E6E6E6;
-    align-items: center;
+    // align-items: center;
     height: 100vh;
     display: flex;
+}
+
+.cont-break{
+    background-color:#272727;
+    height: inherit;
+    text-align:center;
 }
 
 .break-message{
@@ -24,29 +30,44 @@ $fontTitle:'Roboto', sans-serif;
     justify-content: center;
     align-items:center;
     font-family: $fontTitle;
-    color:$generalText;
+    color:white;
     font-size:30px;
     margin-top: 100px;
     margin-bottom:20px;
+}
+
+.cont-save{
+    display: flex;
+    justify-content: center;
+    background-color:#272727;
+    height: inherit;
 }
 
 .butt-start{
     margin-top:130px;
     background-color:$specialColor;
     border-style:solid;
-    border-color:$specialColor;
-    border-radius:5px;
-    font-family: $fontText;
+    border-color:white;
+    border-radius:50%;
+    border-width: 8px;
+    font-family: $fontTitle;
     color: $menuText;
-    font-size: 18px;
-    width: 190px;
+    font-size: 55px;
+    width: 210px;
+    height: 210px;
+    justify-content: center;
+}
+
+.cont-final{
+    display:flex;
+    flex-direction: column;
 }
 
 .final-message{
     font-family: $fontTitle;
     color:$specialColor;
     font-size:2.8em;
-    margin-top: 40%;
+    margin-top: 20vh;
     display: flex;
     justify-content: center;
     
@@ -56,6 +77,7 @@ $fontTitle:'Roboto', sans-serif;
     display:flex;
     flex-direction: column;
     margin-top:30px;
+    align-items: center;
 }
 
 .final-butt{

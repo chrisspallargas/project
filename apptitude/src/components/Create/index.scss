@@ -1,40 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
 
-$backColor:#E6E6E6;
-$backPicking:#F5F5F5;
-$generalText:#222222;
-$backMenu:#222222;
-$menuText:#F5F5F5;
-$specialColor:#E6003F;
-$fontText:'Roboto Slab', serif;
-$fontTitle:'Roboto', sans-serif;
+$backColor: #e6e6e6;
+$backPicking: #f5f5f5;
+$generalText: #222222;
+$backMenu: #222222;
+$menuText: #f5f5f5;
+$specialColor: #e6003f;
+$fontText: "Roboto Slab", serif;
+$fontTitle: "Roboto", sans-serif;
 
-
-.create{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    height: 80%;
-    justify-content: center;
-  
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  justify-content: center;
 }
 
-.buttCreate{
-    display: flex;
-    height: 152px;
-    width: 301px;
-    border-radius: 10px;
-    justify-content: center; 
-    font-family: $fontTitle;
-    color: $backColor;
-    font-size: 17px;
-    background-image:url('../../img/fit-pic2.png');
-    background-size: cover;
-    margin-bottom: 20px;
+.buttCreate {
+  display: flex;
+  height: 152px;
+  width: 301px;
+  border-radius: 10px;
+  justify-content: center;
+  font-family: $fontTitle;
+  color: $backColor;
+  font-size: 17px;
+  background-image: url("../../img/fit-pic2.png");
+  background-size: cover;
+  margin-bottom: 20px;
 }
 
-.linkCreate{
-    color:$menuText;
-    text-decoration:none;
+.linkCreate {
+  color: $menuText;
+  text-decoration: none;
+}
+
+@media (min-width: 500px) {
+  .buttCreate {
+    height: 200px;
+    width: 400px;
+    font-size: 21px;
+  }
 }

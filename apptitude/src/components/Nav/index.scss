@@ -15,11 +15,15 @@ $fontTitle: "Roboto", sans-serif;
   height: 50px;
   display: flex;
   justify-content: space-around;
+
+  a {
+    outline: none;
+  }
 }
 
 .nav-title {
   background-size: cover;
-  width: 60%;
+  width: 135px;
   height: 60px;
 }
 
@@ -95,4 +99,3 @@ $fontTitle: "Roboto", sans-serif;
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-

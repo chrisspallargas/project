@@ -29,7 +29,10 @@ $fontTitle: "Roboto", sans-serif;
 .all-advan {
   color: $menuText;
   font-family: $fontText;
-  font-size: 18px;
+  font-size: 0.9em;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .advantatges {
@@ -70,3 +73,12 @@ span{
   color:$menuText;
   margin:10px auto;
 }
+
+@media (min-width:500px){
+
+  .all-advan {
+    margin-bottom: 35px;
+    font-size: 18px;
+  }
+}
+

@@ -100,7 +100,6 @@ class TrainingRoutine extends Component {
     }
 
     metodoDiscard = async() => {
-        //Aquí simplemente se volverá al principio de la app
 
         let idRoutine = this.props.match.params.id;
         if(this.state.routine.name === "unsaved"){
@@ -137,7 +136,7 @@ class TrainingRoutine extends Component {
             <div className='exercise-page'>
                 <Nav />
                 {loading && <div>loading</div>}
-                {!loading && periodType === "initial" && <button onClick={this.startRoutine} type="button" className='butt-start'>Start</button>}
+                {!loading && periodType === "initial" && <div className='cont-save'><button onClick={this.startRoutine} type="button" className='butt-start'>START</button></div>}
                 {!loading && periodType === "start" && <div>
                     <StartingCounter counter={remainingTime} />
                 </div>}
@@ -145,11 +144,11 @@ class TrainingRoutine extends Component {
                     <CurrentExercise exerc={currentExercise} />
                     <CounterDown counter={remainingTime} />
                 </div>}
-                {!loading && periodType === 'break' && <div>
-                    <div className='break-message'>Break time. Next exercise in...</div>
+                {!loading && periodType === 'break' && <div className='cont-break'>
+                    <div className='break-message'>Break time<br/> Next exercise in...</div>
                     <CounterDown counter={remainingTime} />
                 </div>}
-                {!loading && periodType === 'end' && <div>
+                {!loading && periodType === 'end' && <div className='cont-final'>
                     <div className='final-message'>¡Congratulations!</div>
                     <div className='final-block'>
                         <ModalSave

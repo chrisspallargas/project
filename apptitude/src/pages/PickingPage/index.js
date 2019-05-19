@@ -9,6 +9,8 @@ import Buttons from '../../components/Buttons';
 import './index.scss';
 import Slider from "react-slick";
 import withUser from '../../helpers/withUser';
+import { setUserInfo } from '../../redux/actions/userAction';
+import { connect } from 'react-redux';
 
 
 class PickingPage extends Component {
@@ -23,8 +25,6 @@ class PickingPage extends Component {
 
         }
     }
-
-
 
     // Modificar el state sacando el elemento id del array de seleccionados
     metodoDelete = (id, pos) => {
@@ -69,20 +69,24 @@ class PickingPage extends Component {
 
         let { selected, exerciseTime, breakTime, saved } = this.state;
 
-            let durationTotal = (selected.length * exerciseTime) + (breakTime * (selected.length - 1));
-            let arrExercises = [];
-            for (let i = 0; i < selected.length; i++) {
-                arrExercises.push({ idExercise: selected[i].id, duration: exerciseTime });
-            }
-            let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
-            console.log(data);
-            console.log(name);
-            let done = await Data.addRoutine(name, data, this.props.userInfo.uid);
-            if (done) {
-                this.setState({ saved: true });
-            }
+        let durationTotal = (selected.length * exerciseTime) + (breakTime * (selected.length - 1));
+        let arrExercises = [];
+        for (let i = 0; i < selected.length; i++) {
+            arrExercises.push({ idExercise: selected[i].id, duration: exerciseTime });
+        }
+        let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
+        console.log(data);
+        console.log(name);
+        const { userInfo } = this.props;
+        const { success, idRoutine } = await Data.addRoutine(name, data, userInfo.uid);
+        if (success) {
+            this.setState({ saved: true });
+            userInfo.myRoutinesNames.push(name);
+            userInfo.myRoutines.push(idRoutine);
+            this.props.setUserInfo(userInfo);
+        }
 
-        
+
     }
 
     metodoDiscard = () => {
@@ -100,9 +104,9 @@ class PickingPage extends Component {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            rows: 2,
+            rows: 1,
 
-            slidesPerRow: 3,
+            slidesPerRow: 2,
             slidesToScroll: 1,
             adaptativeHeight: false,
         };
@@ -112,42 +116,54 @@ class PickingPage extends Component {
                 <Nav />
                 {/* <div>Routine:</div> */}
                 <div className="routine">
-                    {selected.length===0 && <div> Add an exercise to your routine</div>}
-                    {/* <Slider {...settings}> */}
-                    {selected.map((exercise, i) => {
-                        return (
-                            <div className='fakeDrag'>
+                    {selected.length === 0 && <div> Add an exercise to your routine</div>}
+                    <Slider {...settings}>
+                        {selected.map((exercise, i) => {
+                            return (
+                                <div className='fakeDrag'>
 
-                                <Exercise
-                                    key={exercise.id + i}
-                                    pos={i}
-                                    id={exercise.id}
-                                    img={exercise.img}
-                                    name={exercise.name}
-                                    intensity={exercise.intensity}
-                                    metodo={this.metodoEmpty}
-                                />
-                                <ButtonComponent key={exercise.id} pos={i} id={exercise.id} metodo={this.metodoDelete} />
+                                    <Exercise
+                                        key={exercise.id + i}
+                                        pos={i}
+                                        id={exercise.id}
+                                        img={exercise.img}
+                                        name={exercise.name}
+                                        intensity={exercise.intensity}
+                                        metodo={this.metodoEmpty}
+                                    />
+                                    <ButtonComponent key={exercise.id} pos={i} id={exercise.id} metodo={this.metodoDelete} />
 
-                            </div>
-                        );
-                    })}
-                    {/* </Slider> */}
+                                </div>
+                            );
+                        })}
+                    </Slider>
 
                 </div>
                 <div id="separador-container"><div id="separador"></div></div>
 
                 <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                 <ExerciseTabs metodo={this.onAddExercise} />
-                {this.props.userInfo!==null && <Buttons user={this.props.userInfo.uid} 
-                        metodoSave={this.metodoSave} 
-                        selectedLength={this.state.selected.length} 
-                        saved={this.state.saved} 
-                        metodoDiscard={this.metodoDiscard} />}
+                {this.props.userInfo !== null && <Buttons user={this.props.userInfo.uid}
+                    metodoSave={this.metodoSave}
+                    selectedLength={this.state.selected.length}
+                    saved={this.state.saved}
+                    metodoDiscard={this.metodoDiscard} />}
 
             </div>
         )
     }
 }
 
-export default withUser(PickingPage);
+const mapStateToProps = (state) => {
+    return {
+        userInfo: state.userReducer.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setUserInfo: (user) => dispatch(setUserInfo(user))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PickingPage);
