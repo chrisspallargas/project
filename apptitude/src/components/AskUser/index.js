@@ -8,20 +8,26 @@ import './index.scss';
 class AskUser extends Component {
     render() {
         return (
-            <div>
-                <div className='principal-container'>
-                    <img className='principal' alt='welcomeApp' src={require('../../img/WelcomeToApptitude.png')} />
-                </div>
-                <div className='askUser'>
-                    <LogIn />
+            <div className='big-home'>
+                <div className='empty'></div>
+                <div className='notEmpty'>
+                    <div className='principal-container'>
+                        <div className='principal'></div>
+                        {/* <img className='principal' alt='welcomeApp'
+                            src={require('../../img/WelcomeToApptitude.png')}
+                        /> */}
+                    </div>
+                    <div className='askUser'>
+                        <LogIn />
 
-                    <Link to="section2" smooth={true} offset={-70} duration={2000}>
-                        <button className='buttSign' type='button'>REGISTER WITH US</button>
-                    </Link>
-                </div>
+                        <Link to="section2" smooth={true} offset={-70} duration={2000}>
+                            <button className='buttSign' type='button'>REGISTER WITH US</button>
+                        </Link>
+                    </div>
 
-                <div id="section2">
-                    <SignIn />
+                    <div id="section2">
+                        <SignIn />
+                    </div>
                 </div>
             </div >
 

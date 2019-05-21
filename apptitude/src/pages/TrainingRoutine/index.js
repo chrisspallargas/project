@@ -136,7 +136,13 @@ class TrainingRoutine extends Component {
             <div className='exercise-page'>
                 <Nav />
                 {loading && <div>loading</div>}
-                {!loading && periodType === "initial" && <div className='cont-save'><button onClick={this.startRoutine} type="button" className='butt-start'>START</button></div>}
+                {!loading && periodType === "initial" && <div className='cont-save'>
+                                                        <button onClick={this.startRoutine} 
+                                                        type="button" className='butt-start'>
+                                                        <img alt='start'className='start-img' 
+                                                        src={require ('../../img/start.png')} />
+                                                        </button>
+                                                        </div>}
                 {!loading && periodType === "start" && <div>
                     <StartingCounter counter={remainingTime} />
                 </div>}
@@ -145,11 +151,15 @@ class TrainingRoutine extends Component {
                     <CounterDown counter={remainingTime} />
                 </div>}
                 {!loading && periodType === 'break' && <div className='cont-break'>
-                    <div className='break-message'>Break time<br/> Next exercise in...</div>
+                    <div className='break-message'> <img alt='break'className='break-img' 
+                                                    src={require ('../../img/Breaktime.png')} />
+                                                    </div>
                     <CounterDown counter={remainingTime} />
                 </div>}
                 {!loading && periodType === 'end' && <div className='cont-final'>
-                    <div className='final-message'>¡Congratulations!</div>
+                    <div className='final-message'><img alt='congrats'className='congrats-img' 
+                                                    src={require ('../../img/Congratulations.png')} />
+                                                    </div>
                     <div className='final-block'>
                         <ModalSave
                             text={"Edit name & save"}

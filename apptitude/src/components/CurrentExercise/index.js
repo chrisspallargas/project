@@ -12,7 +12,7 @@ export default class CurrentExercise extends Component {
 
                 <img className='current-img'
                     alt='currentExercise'
-                    src={require('../../img/1armplank.png')}>
+                    src={this.props.exerc.img}>
                 </img>
                 <div className='current-name'>{this.props.exerc.name}</div>
                 <div className='current-intensity'>{this.props.exerc.intensity}</div>

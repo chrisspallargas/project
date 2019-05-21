@@ -17,9 +17,13 @@ $fontTitle:'Roboto', sans-serif;
 
 
 .principal{
-    width:450px;
-    height: 30vh;
-    margin-top: -25px;
+  background-image: url('../../img/WelcomeToApptitude.png');
+  height: 30vh;
+  margin-top: -25px;
+  display: flex;
+  width: 444px;
+  flex-direction: column;
+  background-size: cover;
   }
   
   .askUser{
@@ -44,5 +48,36 @@ $fontTitle:'Roboto', sans-serif;
     justify-content: center;
   }
 
+  @media(min-width:1000px){
 
- 
+    .big-home{
+      display:flex;
+      flex-direction: column;
+      width:100%;
+      align-items: flex-end;
+    }
+
+    .principal{
+      width: 51vw;
+      height: 31.2vh;
+    }
+
+    .empty{
+      width:34%;
+    }
+
+    .notEmpty{
+      width:66%;
+    }
+
+    .askUser{
+      height:24vh;
+    }
+
+    .buttSign{
+      width: 109px;
+      height: 63px;
+      margin-bottom: 0px;
+    }
+
+}

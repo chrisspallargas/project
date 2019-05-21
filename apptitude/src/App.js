@@ -10,7 +10,6 @@ import PickingPage from './pages/PickingPage';
 import RandomPage from './pages/RandomPage';
 import TrainingRoutine from './pages/TrainingRoutine';
 import MyFave from './pages/MyFave';
-import Profile from './pages/Profile';
 import { connect } from 'react-redux'
 import { setUserInfo } from '../src/redux/actions/userAction';
 
@@ -47,7 +46,6 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-          <Route path='/profile' component={Profile}></Route>
             <Route path='/favorites' component={MyFave}></Route>
             <Route path='/training-routine/:id' component={TrainingRoutine}></Route>
             <Route path='/random-page' component={RandomPage}></Route>

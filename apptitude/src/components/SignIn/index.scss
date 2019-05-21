@@ -82,3 +82,24 @@ span{
   }
 }
 
+@media (min-width:1000px){
+
+  .big{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    margin-top: 40px
+  }
+
+  .all-advan {
+    width:59%;
+    margin-top: 27px;
+    font-size: 1.2em;
+  }
+
+  .signin-form{
+    display:flex;
+    width:30%;
+  }
+}
+

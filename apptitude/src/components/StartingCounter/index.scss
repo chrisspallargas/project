@@ -19,9 +19,12 @@ $fontTitle:'Roboto', sans-serif;
 .message{
   display:flex;
   justify-content: center;
-  font-family: $fontTitle;
-  color:$generalText;
   font-size:30px;
   margin-top: 100px;
   margin-bottom:20px;
+}
+
+.ready-img{
+  height:85px;
+  width:auto;
 }

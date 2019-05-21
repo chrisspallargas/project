@@ -10,7 +10,8 @@ export default class StartingCounter extends Component{
        
         return (
             <div className='start-counter'>
-                <div className='message'>It starts in...</div>
+                <div className='message'><img alt='start'className='ready-img' 
+                                        src={require ('../../img/Getready.png')} /></div>
                 <CounterDown counter={this.props.counter}/>          
             </div>
         )

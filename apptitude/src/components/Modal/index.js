@@ -20,7 +20,7 @@ export default class Modal extends React.Component {
                 <div className='linkCreate'>
                     <Link to={'/random-page'}>
                         <button type='button'
-                            className='buttCreate'
+                            className='buttCreate2'
                             onClick={this.show}>
                             Make it Random!
                         </button>

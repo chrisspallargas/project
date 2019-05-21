@@ -15,9 +15,9 @@ export default class Exercise extends Component {
         return (
             <div className='containerEx'>
                 <div onClick={this.handleClick} className='eachEx'>
-                    <div className='exercise-img'>{img}</div>
+                    <div className='exercise-img'><img className="img-tab" alt="imagen de ejercicio" src={img}/></div>
                     <div className='exercise-name'>{name}</div>
-                    <div className='exercise-intensity'>{intensity} intensity</div>
+                    {/* <div className='exercise-intensity'>{intensity} intensity</div> */}
                 </div>
             </div>
         )

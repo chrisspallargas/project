@@ -83,7 +83,7 @@ export default class ExerciseTabs extends Component {
                         <div>
                             {loading && <div>loading</div>}
                             <div>
-                                {!loading && <div><Slider {...settings}>{
+                                {!loading && <div className='map'><Slider {...settings}>{
                                     this.arrayLegs.map((exercise, i) => {
                                         return (
                                             <Exercise
@@ -106,7 +106,7 @@ export default class ExerciseTabs extends Component {
                         <div>
                             {loading && <div>loading</div>}
                             <div>
-                                {!loading && <div><Slider {...settings}>{
+                                {!loading && <div className='map'><Slider {...settings}>{
                                     this.arrayButtocks.map((exercise, i) => {
                                         return (
                                             <Exercise
@@ -129,7 +129,7 @@ export default class ExerciseTabs extends Component {
                         <div>
                             {loading && <div>loading</div>}
                             <div>
-                                {!loading && <div><Slider {...settings}>{
+                                {!loading && <div className='map'><Slider {...settings}>{
                                     this.arrayAbs.map((exercise, i) => {
                                         return (
                                             <Exercise
@@ -152,7 +152,7 @@ export default class ExerciseTabs extends Component {
                         <div>
                             {loading && <div>loading</div>}
                             <div>
-                                {!loading && <div><Slider {...settings}>{
+                                {!loading && <div className='map'><Slider {...settings}>{
                                     this.arrayCardio.map((exercise, i) => {
                                         return (
                                             <Exercise

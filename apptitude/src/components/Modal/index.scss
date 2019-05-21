@@ -18,3 +18,17 @@ $fontTitle:'Roboto', sans-serif;
     color:$menuText;
     text-decoration:none;
 }
+
+.buttCreate2 {
+    display: flex;
+    height: 152px;
+    width: 301px;
+    border-radius: 10px;
+    justify-content: center;
+    font-family: $fontTitle;
+    color: $backColor;
+    font-size: 1.1em;
+    background-image: url("../../img/ImagenBoton2.jpg");
+    background-size: cover;
+    margin-bottom: 20px;
+  }
