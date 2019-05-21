@@ -11,16 +11,15 @@ $fontText:'Roboto Slab', serif;
 $fontTitle:'Roboto', sans-serif;
 
 .botonMod{
-    // display:flex;
-    // justify-content: center;
-    // width: 110px;
+    display:flex;
+    justify-content: center;
+    width: 110px;
 }
 .trash-img{
-    width:15px;
-    height: 15px;
+    width:12px;
+    height: 12px;
 }
 
-.replace-img{
-    width:15px;
-    height: 15px;
+button{
+    padding: 0px 0px;
 }

@@ -47,3 +47,32 @@ $fontTitle:'Roboto', sans-serif;
     text-align:center;
 }
 
+//----------------------------------------------------------------------Responsive
+
+@media(min-width:500px){
+
+    .current-img{
+        width: auto;
+        height: 300px;
+    }
+
+    .current-name{
+        font-size:1.4em;
+    }
+
+    .current-description{
+        font-size: 0.8em;
+        width:90%;
+    }
+}
+
+
+@media(min-width:800px){
+
+    .current-img{
+        width: auto;
+        height: 330px;
+    }
+}
+
+

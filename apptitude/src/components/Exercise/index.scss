@@ -50,3 +50,14 @@ $fontTitle:'Roboto', sans-serif;
     flex-direction: column;
     align-items: center;
 }
+
+//----------------------------------------------------------------------Responsive
+
+@media(min-width:450px){
+
+    .containerEx{
+        height: 117px;
+        width: 113px;
+    }
+
+}

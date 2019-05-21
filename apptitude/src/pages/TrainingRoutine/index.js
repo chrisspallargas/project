@@ -27,7 +27,7 @@ class TrainingRoutine extends Component {
             loading: true,
             visible: false,
             saved:false,
-            randomSelected: [],
+            //randomSelected: [],
             showModal: true,
             breakTime: 10,
             exerciseTime: 10

@@ -28,3 +28,25 @@ $fontTitle:'Roboto', sans-serif;
   height:85px;
   width:auto;
 }
+
+
+//----------------------------------------------------------------------Responsive
+
+
+@media(min-width:500px){
+
+  .ready-img{
+    height:93px;
+    width:auto;
+  }
+
+}
+
+@media(min-width:700px){
+
+  .ready-img{
+    height:113px;
+    width:auto;
+  }
+
+}

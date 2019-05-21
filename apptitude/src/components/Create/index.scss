@@ -20,8 +20,8 @@ $fontTitle: "Roboto", sans-serif;
 
 .buttCreate {
   display: flex;
-  height: 152px;
-  width: 301px;
+  height: 200px;
+  width: 345px;
   border-radius: 10px;
   justify-content: center;
   font-family: $fontTitle;
@@ -37,10 +37,29 @@ $fontTitle: "Roboto", sans-serif;
   text-decoration: none;
 }
 
+//----------------------------------------------------------------------Responsive
+
 @media (min-width: 500px) {
   .buttCreate {
-    height: 200px;
-    width: 400px;
-    font-size: 21px;
+    height: 270px;
+    width: 490px;
+    font-size: 25px;
+    margin-top: 112px;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80%;
+    justify-content: center;
+  }
+
+  .buttCreate {
+    margin-top: 0px;
+    margin-right:10px;
   }
 }

@@ -100,13 +100,13 @@ class PickingPage extends Component {
         let { selected } = this.state;
         console.log(selected)
         let settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
             rows: 1,
 
-            slidesPerRow: 2,
+            slidesPerRow: 1,
             slidesToScroll: 1,
             adaptativeHeight: false,
         };
@@ -116,7 +116,7 @@ class PickingPage extends Component {
                 <Nav />
                 {/* <div>Routine:</div> */}
                 <div className="routine">
-                    {selected.length === 0 && <div> Add an exercise to your routine</div>}
+                    {selected.length === 0 && <div className='routine-container'> Add an exercise to your routine</div>}
                     <Slider {...settings}>
                         {selected.map((exercise, i) => {
                             return (

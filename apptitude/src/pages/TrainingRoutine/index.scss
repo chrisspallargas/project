@@ -50,8 +50,8 @@ $fontTitle:'Roboto', sans-serif;
     border-color:white;
     border-radius:50%;
     border-width: 8px;
-    width: 210px;
-    height: 210px;
+    width: auto;
+    height: 29vh;
     justify-content: center;
 }
 
@@ -61,7 +61,7 @@ $fontTitle:'Roboto', sans-serif;
 }
 
 .break-img {
-    height:78px;
+    height:85px;
     width:auto;
 }
 
@@ -102,4 +102,44 @@ $fontTitle:'Roboto', sans-serif;
     color: #222222;
     font-size: 18px;
     width: 190px;
+}
+
+//----------------------------------------------------------------------Responsive
+
+@media(min-width:500px){
+    .butt-start{
+        width: 298px;
+        height: 298px;
+        margin-top: 80px;
+    }
+
+    .start-img {
+        height: 113px;
+        width: auto;
+    }
+
+    .break-img {
+        height:93px;
+        width:auto;
+    }
+
+    .congrats-img {
+        height:81px;
+        width:auto;
+    }
+
+}
+
+@media(min-width:700px){
+
+    .break-img {
+        height:113px;
+        width:auto;
+    }
+
+    .congrats-img {
+        height:100px;
+        width:auto;
+    }
+
 }

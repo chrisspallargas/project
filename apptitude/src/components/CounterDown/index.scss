@@ -33,3 +33,13 @@ $fontTitle:'Roboto', sans-serif;
     color:$specialColor;
     font-size:10em;
 }
+
+//----------------------------------------------------------------------Responsive
+
+@media(min-width:500px){
+
+    .butt-down{
+        height:200px;
+        width: 200px;
+    }
+}
