@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Apptitude project
 
-In the project directory, you can run:
+Apptitude is a mobile application thought for everybody who would have like to be fit, but can not go to the gym. It is specified for ones who want a fast training, without fitness material and in a limited space. Although, it is also usefull for long trainings and to use it as your usual App to be in shape.
 
-### `npm start`
+The mision of this project is, other than helping people to have the habbit of exercising, showing that there are no excuses when you want something, and although we live in a society where everything goes fast, to learn dealing with that speed and find some minutes a day for ourselves is posible and  very beneficial for our health. 
+  
+This project has been developed for the final project of the Front-End course in Skylab Coders Academy.  
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Functional description
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Users should be registerred to enjoy this app, so the first thing we find is the Home page where, if you are logged you just have to authenticate yourself, and if it is the first time visiting us, you will have to register filling a simple form.
 
-### `npm test`
+Once inside the app, there are two training options: choosing your exercises from a picking, or let the app make a random for you. Both options will ask the user to specified how many exercises want to train, which muscular groups want to focus in, and how long will each exercise and the break time take.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Another functionality we will find, is that user will be able to save the routines to re-training them in the future. The button 'Save' is available at the beginning and at the end of the process. This saved routines will be listed in a section called 'My Routines'.
 
-### `npm run build`
+Here there is a flowchart of all the user experience in Apptitude:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+flowchart------------------------------------------------------------
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Technique description
+The front-end is created using ReactJS (React-router, components, pages, Redux (userInfo)). 
+SCSS is used to styled all the App. 
+The back-end is created with Frebase (authentication, function, storage and database).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Components and Pages details:
 
-### `npm run eject`
+COMPONENTS:
+    AskUser
+    ButtonComponent
+    Buttons
+    CounterDown
+    Create
+    CurrentExercise
+    Exercise
+    ExerciseTabs
+    FaveItem
+    LogIn
+    Modal
+    ModalSave
+    MuscularGroupOption
+    Nav
+    Questions
+    SignIn
+    StartingCounter
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+PAGES:
+    Home
+    MyFave
+    OptionPage
+    PickingPage
+    RandomPage
+    TrainingRoutine
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Modelo de datos
+Users = [ { Name, Email, myRoutines: [ ], myRoutinesNames: [ ], uid } ];
+Exercises = [ {name, description, intensity, muscularGroup} ];
+Routines = [ {breaktime, duration, exercises: [duration, idExercise], name} ];
