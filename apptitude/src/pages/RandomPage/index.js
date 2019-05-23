@@ -198,7 +198,7 @@ class RandomPage extends Component {
                 <button className='random-butt' onClick={this.discard}>Discard</button>
                 <button className='random-butt' onClick={this.start}>Let's start!</button>
                 <Rodal customStyles={{ backgroundColor: "#E6E6E6", borderRadius: '25px' }}
-                    animation={'flip'} width={300} height={300}
+                    animation={'flip'} width={300} height={330}
                     visible={showModal} onClose={this.hide}>
                     <div>
                         <div className='minutes2'>
@@ -211,7 +211,7 @@ class RandomPage extends Component {
                         </div>
                         <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                         <MuscularGroupOptions checkedGroup={this.checkedGroup} />
-                        <div>{message}</div>
+                        <div className='message-alert'>{message}</div>
                         <button type="button" value="Ok!" className='form-ok-butt' onClick={this.onMuscular}>Ok!</button>
                         {/* {!muscularGroups && this.exercise.id==='undefined' && <div className='message'>Please, choose a muscular group </div>} */}
                     </div>

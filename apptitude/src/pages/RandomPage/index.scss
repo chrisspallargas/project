@@ -97,3 +97,10 @@ $fontTitle:'Roboto', sans-serif;
   font-size: 18px;
   width: 190px;
 }
+
+.message-alert{
+  font-family:$fontText;
+  color:$generalText;
+  font-size:16px;
+  text-align: center;
+}
