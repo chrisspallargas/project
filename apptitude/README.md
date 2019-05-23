@@ -17,7 +17,7 @@ Another functionality we will find, is that user will be able to save the routin
 
 Here there is a flowchart of all the user experience in Apptitude:
 
-![alt text](/src/img/FlowchartApptitude.png 'Apptitude flowchart')
+![alt text](/FlowchartApptitude.png 'Apptitude flowchart')
 
 ## Technique description
 The front-end is created using ReactJS (React-router, components, pages, Redux (userInfo)). 
