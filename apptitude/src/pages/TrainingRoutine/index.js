@@ -65,7 +65,7 @@ class TrainingRoutine extends Component {
                 this.setState({ periodType: 'end' });
 
             } else {
-                this.setState({ periodType: 'break', remainingTime: this.breakTime });
+                this.setState({ periodType: 'break', remainingTime: routine.breakTime});
                 this.gestionarTime();
             }
         }
@@ -97,6 +97,10 @@ class TrainingRoutine extends Component {
     startRoutine = () => {
         this.gestionarTime();
         this.setState({ periodType: 'start' });
+    }
+
+    metodoBreak = (value) => {
+        this.setState({ breakTime: value });
     }
 
     metodoDiscard = async() => {
@@ -131,7 +135,8 @@ class TrainingRoutine extends Component {
     }
 
     render() {
-        const { loading, currentExercise, periodType, remainingTime, visible } = this.state;
+        const { loading, currentExercise, periodType, remainingTime, breakTime,visible } = this.state;
+        console.log("Render break",breakTime)
         return (
             <div className='exercise-page'>
                 <Nav />

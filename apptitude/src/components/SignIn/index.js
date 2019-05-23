@@ -28,7 +28,9 @@ class SignIn extends Component {
                 const success = Data.addObjectWithId('users', user.uid, { 
                     name,  
                     email,
-                    uid: user.uid 
+                    uid: user.uid,
+                    myRoutines:[],
+                    myRoutinesNames:[] 
                 });
     
                 if(success) {

@@ -3,8 +3,10 @@ import './index.scss';
 
 class Questions extends Component {
     
-    changeBreak = (event) => {
+    changeBreak = (event) =>{ 
+        console.log("Picking Question change break",event.target.value);
         this.props.metodoBreak(parseInt(event.target.value));
+
     }
 
     changeExerc = (event) => {

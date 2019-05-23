@@ -6,6 +6,8 @@ import ButtonComponent from '../../components/ButtonComponent';
 import Exercise from '../../components/Exercise';
 import Data from '../../services/Data';
 import ModalSave from '../../components/ModalSave';
+import { connect } from 'react-redux'
+import { setUserInfo } from '../../redux/actions/userAction';
 
 import Rodal from 'rodal';
 
@@ -38,7 +40,8 @@ class RandomPage extends Component {
             valueRange: 25,
             loading: true,
             visible: false,
-            saved: false
+            saved: false,
+            message:''
         }
     }
 
@@ -64,12 +67,14 @@ class RandomPage extends Component {
         let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
         // console.log(data);
         // console.log(name);
-        let { success } = await Data.addRoutine(name, data, this.props.userInfo.uid);
+        let { success, idRoutine } = await Data.addRoutine(name, data, this.props.userInfo.uid);
         if (success) {
             this.setState({ saved: true, visible: false });
-            // userInfo.myRoutinesNames.push(name);
-            // userInfo.myRoutines.push(idRoutine);
-            // this.props.setUserInfo(userInfo);
+            
+            let userInfo=this.props.userInfo;
+            userInfo.myRoutinesNames.push(name);
+            userInfo.myRoutines.push(idRoutine);
+            this.props.setUserInfo(userInfo);
         }
 
     }
@@ -87,32 +92,36 @@ class RandomPage extends Component {
         //console.log(this.arrayArms, this.arrayLegs, this.arrayButtocks, this.arrayAbs, this.arrayCardio);
         let { muscularGroups, valueRange } = this.state;
         let toRandom = [];
-        for (let i = 0; i < muscularGroups.length; i++) {
-            if (muscularGroups[i] === 'arms') {
-                toRandom = toRandom.concat(this.arrayArms);
+        if (muscularGroups.length !== 0) {
+            for (let i = 0; i < muscularGroups.length; i++) {
+                if (muscularGroups[i] === 'arms') {
+                    toRandom = toRandom.concat(this.arrayArms);
+                }
+                if (muscularGroups[i] === 'legs') {
+                    toRandom = toRandom.concat(this.arrayLegs);
+                }
+                if (muscularGroups[i] === 'buttocks') {
+                    toRandom = toRandom.concat(this.arrayButtocks);
+                }
+                if (muscularGroups[i] === 'abs') {
+                    toRandom = toRandom.concat(this.arrayAbs);
+                }
+                if (muscularGroups[i] === 'cardio') {
+                    toRandom = toRandom.concat(this.arrayLegs);
+                }
             }
-            if (muscularGroups[i] === 'legs') {
-                toRandom = toRandom.concat(this.arrayLegs);
+         
+            let randomSelected = [];
+
+            for (let i = 0; i < valueRange; i++) {
+                randomSelected.push(toRandom[Math.floor(Math.random() * toRandom.length)]);
             }
-            if (muscularGroups[i] === 'buttocks') {
-                toRandom = toRandom.concat(this.arrayButtocks);
-            }
-            if (muscularGroups[i] === 'abs') {
-                toRandom = toRandom.concat(this.arrayAbs);
-            }
-            if (muscularGroups[i] === 'cardio') {
-                toRandom = toRandom.concat(this.arrayLegs);
-            }
+
+            this.setState({ randomSelected, showModal: false, saved: false });
+
+        }else{
+            this.setState({message:"You must choose an option"})
         }
-
-
-        let randomSelected = [];
-
-        for (let i = 0; i < valueRange; i++) {
-            randomSelected.push(toRandom[Math.floor(Math.random() * toRandom.length)]);
-        }
-
-        this.setState({ randomSelected, showModal: false, saved: false });
     }
 
     show = () => {
@@ -134,9 +143,6 @@ class RandomPage extends Component {
     checkedGroup = (group) => {
         let { muscularGroups } = this.state;
         let newMuscularGroups = muscularGroups.slice();
-        // if(!group){
-        //     this.setState({message: 'Please, choose an option'});
-        // }
         if (!newMuscularGroups.includes(group)) {
             newMuscularGroups.push(group);
         } else {
@@ -145,7 +151,7 @@ class RandomPage extends Component {
         }
 
         console.log('muscularGroups:', newMuscularGroups);
-        this.setState({ muscularGroups: newMuscularGroups });
+        this.setState({ muscularGroups: newMuscularGroups, message:'' });
     }
 
     changeRange = (event) => {
@@ -160,7 +166,7 @@ class RandomPage extends Component {
 
 
     render() {
-        let { randomSelected, showModal, valueRange, visible, saved, muscularGroups } = this.state;
+        let { randomSelected, showModal, valueRange, visible, saved, muscularGroups, message } = this.state;
         return (
             <div className='random-page'>
                 <Nav />
@@ -205,6 +211,7 @@ class RandomPage extends Component {
                         </div>
                         <Questions metodoBreak={this.metodoBreak} metodoExerc={this.metodoExerc} />
                         <MuscularGroupOptions checkedGroup={this.checkedGroup} />
+                        <div>{message}</div>
                         <button type="button" value="Ok!" className='form-ok-butt' onClick={this.onMuscular}>Ok!</button>
                         {/* {!muscularGroups && this.exercise.id==='undefined' && <div className='message'>Please, choose a muscular group </div>} */}
                     </div>
@@ -215,4 +222,16 @@ class RandomPage extends Component {
     }
 }
 
-export default withUser(RandomPage);
+const mapStateToProps = (state) => {
+    return {
+      userInfo: state.userReducer.user
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      setUserInfo: (user) => dispatch(setUserInfo(user))
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(withUser(RandomPage));

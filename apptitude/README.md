@@ -17,7 +17,7 @@ Another functionality we will find, is that user will be able to save the routin
 
 Here there is a flowchart of all the user experience in Apptitude:
 
-flowchart------------------------------------------------------------
+---------------------flowchart------------------------------------------------------------
 
 Technique description
 The front-end is created using ReactJS (React-router, components, pages, Redux (userInfo)). 
@@ -53,7 +53,8 @@ PAGES:
     RandomPage
     TrainingRoutine
 
-Modelo de datos
-Users = [ { Name, Email, myRoutines: [ ], myRoutinesNames: [ ], uid } ];
-Exercises = [ {name, description, intensity, muscularGroup} ];
-Routines = [ {breaktime, duration, exercises: [duration, idExercise], name} ];
+Modelo de datos:
+
+Users = [ { Name, Email, myRoutines: ['id'], myRoutinesNames: ['name'], uid } ];
+Exercises = [ {name, description,img , intensity, muscularGroup, id} ];
+Routines = [ {breaktime, duration, id, exercises: [duration, idExercise], name} ];

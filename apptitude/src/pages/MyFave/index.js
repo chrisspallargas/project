@@ -43,6 +43,12 @@ class MyFave extends Component {
         routines.splice(index,1);
         routinesId.splice(index,1);
 
+        let user= await Data.getObjectDetail("users",this.props.userInfo.uid);
+        user.myRoutines = routinesId;
+
+        await Data.updateDetail("users",this.props.userInfo.uid,{routines:user.myRoutines});
+
+
         this.setState({routines,routinesId});
     }
 
@@ -54,15 +60,20 @@ class MyFave extends Component {
                 let routine = await Data.getObjectDetail('routines', user.myRoutines[i]);
                 routines.push(routine);
             }
+            console.log("TCL: MyFave -> setUserRoutines -> routines", routines)
             this.setState({ user, routines, routinesId: user.myRoutines, loading: false });
         } else {
             this.setState({loading:false});
         }
     }
+            
 
     render() {
         const { user, routines, routinesId, loading } = this.state;
+        
+        
         console.log("Render MyFave");
+        console.log("TCL: MyFave -> render -> routines", routines)
         return (
             <div className='my-fave'>
                 <Nav />
@@ -71,7 +82,8 @@ class MyFave extends Component {
                     <div className='faves'>My favorite routines</div>
                     {routines.length===0 && <p>There are no routines yet</p>} 
                     {routines.map((elem, i) => {
-                        return <FaveItem idRoutine={routinesId[i]} metodoDelete={this.metodoDelete} routine={elem} />
+                        console.log(i);
+                        return <FaveItem key={i} idRoutine={routinesId[i]} metodoDelete={this.metodoDelete} routine={elem} />
                     })}
                 </div>}
             </div>

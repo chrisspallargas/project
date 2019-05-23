@@ -55,6 +55,7 @@ class PickingPage extends Component {
 
     metodoBreak = (breakTime) => {
         //console.log("TCL: PickingPage -> metodoBreak -> breakTime",breakTime);
+        console.log("método break de la picking", breakTime);
         this.setState({ breakTime });
     }
 
