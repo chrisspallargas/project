@@ -511,7 +511,7 @@ export default class Data {
           await db.collection("users").doc(userId).set({myRoutines:user.myRoutines, myRoutinesNames:user.myRoutinesNames}, {merge: true});
         } catch (err) {
           success = false;
-          console.log("TCL: DataService -> updateDetail -> err", err)
+          
         }
     
         return success;
@@ -523,7 +523,6 @@ export default class Data {
         let success = false;
         let idRoutine = null;
         
-        //Este código guarda la rutina en la collection de routines
         try {
           const docRef = await db.collection('routines').add({
             breakTime:data.breakTime,
@@ -536,12 +535,10 @@ export default class Data {
             success = true;
           }
         } catch (err) {
-          console.log("TCL: DataService -> addContact -> err", err)
+          
         }
-        
-        //Este código guarda el nombre e id de la rutina en la collection users, y por tanto
-        //no debe guardarse en esa collection, si no me pasan Id de user.
-        console.log(success, idRoutine, userId);
+   
+     
         if(success && userId){
         
             success = await this.addRoutineToUser(name,idRoutine,userId);
@@ -580,7 +577,7 @@ export default class Data {
     
         } catch (err) {
           success = false;
-          console.log("TCL: DataService -> deleteContact -> err", err)
+          
         }
     
         return success;

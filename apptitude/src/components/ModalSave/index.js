@@ -54,7 +54,7 @@ export default class ModalSave extends React.Component {
                         <input type='placeholder' className='placeholder' onChange={this.changeValue}/>
                         <button type="button" value="Ok!" className='buttSave' onClick={this.onSave}>Save</button>
                     </div>
-                    <div>{this.state.errorMessage}</div>
+                    <div className='error-message'>{this.state.errorMessage}</div>
                 </Rodal>
             </div>
         )

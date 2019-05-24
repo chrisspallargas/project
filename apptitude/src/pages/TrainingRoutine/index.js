@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './index.scss';
 import Nav from '../../components/Nav';
 import CurrentExercise from '../../components/CurrentExercise';
-//import CurrentTimer from '../../components/CurrentTimer';
 import Data from '../../services/Data';
 import StartingCounter from '../../components/StartingCounter';
 import CounterDown from '../../components/CounterDown';
@@ -35,15 +34,13 @@ class TrainingRoutine extends Component {
 
     async componentDidMount() {
         const routine = await Data.getObjectDetail('routines', this.props.match.params.id);
-        //console.log("TCL: TrainingRoutine -> componentDidMount -> routine", routine);
-
 
         const detailsExercises = [];
         for (let i = 0; i < routine.exercices.length; i++) {
             const exerc = await Data.getObjectDetail('exercises', routine.exercices[i].idExercise);
             detailsExercises.push(exerc);
         }
-        // console.log("TCL: TrainingRoutine -> componentDidMount -> detailsExercises", detailsExercises)
+       
         const currentExercise = detailsExercises[0];
 
         this.setState({ currentExercise, routine, detailsExercises, loading: false });
@@ -71,7 +68,6 @@ class TrainingRoutine extends Component {
 
         if (periodType === 'break') {
             exerciseNumber = exerciseNumber + 1;
-            // console.log("TCL: TrainingRoutine -> gestionarState -> exerciseNumber++", exerciseNumber++)
 
             remainingTime = routine.exercices[exerciseNumber].duration;
             currentExercise = detailsExercises[exerciseNumber];
@@ -121,8 +117,6 @@ class TrainingRoutine extends Component {
     }
 
     editName = async (name) => {
-        // Aquí irá el comportamiento del boton save del pop up, que guardará 
-        // el nombre de la rútina que le pasemos.
         let idRoutine = this.props.match.params.id;
         let data = {name:name};
         this.setState({visible:false, showModal:false});
@@ -135,7 +129,7 @@ class TrainingRoutine extends Component {
     }
 
     render() {
-        const { loading, currentExercise, periodType, remainingTime, breakTime,visible } = this.state;
+        const { loading, currentExercise, periodType, remainingTime, visible } = this.state;
         return (
             <div className='exercise-page'>
                 <Nav />

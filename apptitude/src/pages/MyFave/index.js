@@ -25,7 +25,7 @@ class MyFave extends Component {
         if (user) {
             this.setUserRoutines(user);
         }
-        //console.log(this.props.userInfo, "info de usuario Component did mount");
+        
     }
 
     componentDidUpdate(prevProps) {
@@ -56,7 +56,7 @@ class MyFave extends Component {
         let routines = [];
         if (user.myRoutines) {
             for (let i = 0; i < user.myRoutines.length; i++) {
-                //console.log(user.myRoutines[i]);
+               
                 let routine = await Data.getObjectDetail('routines', user.myRoutines[i]);
                 routines.push(routine);
             }
@@ -71,9 +71,6 @@ class MyFave extends Component {
     render() {
         const { user, routines, routinesId, loading } = this.state;
         
-        
-        console.log("Render MyFave");
-        console.log("TCL: MyFave -> render -> routines", routines)
         return (
             <div className='my-fave'>
                 <Nav />

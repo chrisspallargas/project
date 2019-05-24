@@ -54,3 +54,11 @@ $fontTitle: "Roboto", sans-serif;
   height: 100vh;
   z-index: 100;
 }
+
+.error-message{
+  font-family: $fontText;
+  color:$backMenu;
+  font-size: 16px;
+  text-align:center;
+  margin-top:20px;
+}

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
 import {Link} from 'react-router-dom';
-
-//import Popup from "reactjs-popup";
-
 import Modal from '../Modal';
 
 

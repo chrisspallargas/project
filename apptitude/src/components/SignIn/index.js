@@ -34,13 +34,13 @@ class SignIn extends Component {
                 });
     
                 if(success) {
-                    console.log("GUARDAR NUEVO USUARIO EN REDUX");
+                    //console.log("GUARDAR NUEVO USUARIO EN REDUX");
                    
             }
         }
             
           } else {
-            console.log("OJO: no hay usuario")
+            //console.log("OJO: no hay usuario")
     
           }
 

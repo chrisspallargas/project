@@ -13,9 +13,6 @@ class AskUser extends Component {
                 <div className='notEmpty'>
                     <div className='principal-container'>
                         <div className='principal'></div>
-                        {/* <img className='principal' alt='welcomeApp'
-                            src={require('../../img/WelcomeToApptitude.png')}
-                        /> */}
                     </div>
                     <div className='askUser'>
                         <LogIn />

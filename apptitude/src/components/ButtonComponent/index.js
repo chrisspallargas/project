@@ -4,7 +4,6 @@ import './index.scss';
 export default class ButtonComponent extends Component {
 
     handleClick = () =>{
-        // console.log(this.props.id, this.props.pos);
         this.props.metodo(this.props.id,this.props.pos)
 		
     }

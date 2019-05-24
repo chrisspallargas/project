@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
 import Nav from '../../components/Nav';
-import Buttons from '../../components/Buttons';
-import ButtonComponent from '../../components/ButtonComponent';
 import Exercise from '../../components/Exercise';
 import Data from '../../services/Data';
 import ModalSave from '../../components/ModalSave';
@@ -55,8 +53,6 @@ class RandomPage extends Component {
     }
 
     metodoSave = async (name) => {
-        // Aquí irá el comportamiento del boton save del pop up, que gaurdará todo 
-        // los ejercicios del this.state.selected
 
         let { randomSelected, exerciseTime, breakTime } = this.state;
         let durationTotal = (randomSelected.length * exerciseTime) + (breakTime * (randomSelected.length - 1));
@@ -65,8 +61,7 @@ class RandomPage extends Component {
             arrExercises.push({ idExercise: randomSelected[i].id, duration: exerciseTime });
         }
         let data = { duration: durationTotal, exercices: arrExercises, breakTime: breakTime };
-        // console.log(data);
-        // console.log(name);
+       
         let { success, idRoutine } = await Data.addRoutine(name, data, this.props.userInfo.uid);
         if (success) {
             this.setState({ saved: true, visible: false });
@@ -84,12 +79,12 @@ class RandomPage extends Component {
             await this.metodoSave("unsaved");
         }
         let idRoutine = await Data.getUltimaRoutine(this.props.userInfo.uid);
-        // this.props.history.push('/training-routine/'+{user.myRoutines[últimapos]})
+        
         this.props.history.push('/training-routine/' + idRoutine);
     }
 
     onMuscular = () => {
-        //console.log(this.arrayArms, this.arrayLegs, this.arrayButtocks, this.arrayAbs, this.arrayCardio);
+       
         let { muscularGroups, valueRange } = this.state;
         let toRandom = [];
         if (muscularGroups.length !== 0) {
@@ -213,7 +208,7 @@ class RandomPage extends Component {
                         <MuscularGroupOptions checkedGroup={this.checkedGroup} />
                         <div className='message-alert'>{message}</div>
                         <button type="button" value="Ok!" className='form-ok-butt' onClick={this.onMuscular}>Ok!</button>
-                        {/* {!muscularGroups && this.exercise.id==='undefined' && <div className='message'>Please, choose a muscular group </div>} */}
+                        
                     </div>
                 </Rodal>
                 </div>

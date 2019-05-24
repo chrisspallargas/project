@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import '../node_modules/react-tiny-tabs/dist/index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './services/Auth';
 import Data from './services/Data';

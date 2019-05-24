@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ModalSave from '../ModalSave';
-import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import Data from '../../services/Data';
 
@@ -23,7 +22,7 @@ class Buttons extends Component {
 
     onCloseModal = () => {
         this.setState({visible: false});
-        // this.props.history.push('/'); 
+       
       }
 
     discard = () =>{
@@ -35,7 +34,7 @@ class Buttons extends Component {
             await this.props.metodoSave("unsaved");
         }
         let idRoutine=await Data.getUltimaRoutine(this.props.user);
-        // this.props.history.push('/training-routine/'+{user.myRoutines[últimapos]})
+        
         this.props.history.push('/training-routine/'+idRoutine);
     }
 
@@ -59,7 +58,5 @@ class Buttons extends Component {
     }
 }
 
-
-{/* <Link to={'/training-routine/:id'}></Link> */}
 
 export default withRouter(Buttons);
