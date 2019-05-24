@@ -15,6 +15,8 @@ Once inside the app, there are two training options: choosing your exercises fro
 
 Another functionality we will find, is that user will be able to save the routines to re-training them in the future. The button 'Save' is available at the beginning and at the end of the process. This saved routines will be listed in a section called 'My Routines'.
 
+### Demo: https://skylab-project.firebaseapp.com/
+
 Here there is a flowchart of all the user experience in Apptitude:
 
 ![image](https://raw.githubusercontent.com/chrisspallargas/project/develop/apptitude/FlowchartApptitude.png)
