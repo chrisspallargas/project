@@ -22,7 +22,7 @@ class Nav extends Component {
         return (
             <div className='nav'>
                 <div className='nav-title'>
-                <Link to="option-page"><img className='nav-title'
+                <Link to="/option-page"><img className='nav-title'
                         alt='logo'
                         src={require('../../img/LogoApptitude.png')}>
                     </img></Link>

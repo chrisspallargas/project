@@ -34,6 +34,7 @@ export default class ModalSave extends React.Component {
     onSave = () =>{
         if(this.state.value!==""){
             this.props.metodoSave(this.state.value);
+            this.setState({visible:false})
         }
         else{
             this.setState({errorMessage:"Routine Name Required!"})

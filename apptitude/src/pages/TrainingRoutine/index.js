@@ -27,7 +27,6 @@ class TrainingRoutine extends Component {
             loading: true,
             visible: false,
             saved:false,
-            //randomSelected: [],
             showModal: true,
             breakTime: 10,
             exerciseTime: 10
@@ -126,8 +125,9 @@ class TrainingRoutine extends Component {
         // el nombre de la rútina que le pasemos.
         let idRoutine = this.props.match.params.id;
         let data = {name:name};
+        this.setState({visible:false, showModal:false});
         let done = await Data.updateDetail("routines",idRoutine,data);
-        this.setState({visible:false});
+        
     }
 
     start = async() =>{
@@ -136,7 +136,6 @@ class TrainingRoutine extends Component {
 
     render() {
         const { loading, currentExercise, periodType, remainingTime, breakTime,visible } = this.state;
-        console.log("Render break",breakTime)
         return (
             <div className='exercise-page'>
                 <Nav />
