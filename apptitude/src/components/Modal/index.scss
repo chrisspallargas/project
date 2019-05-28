@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+.form-ok-butt{
+    width:75px;
+}
+
+.linkCreate{
+    color:$menuText;
+    text-decoration:none;
+}
+
+.buttCreate2 {
+    //display: flex;
+    height: 200px;
+    width: 345px;
+    border-radius: 10px;
+    justify-content: center;
+    font-family: $fontTitle;
+    color: $backColor;
+    font-size: 1.1em;
+    background-image: url("../../img/ImagenBoton2.jpg");
+    background-size: cover;
+    margin-bottom: 20px;
+  }
+
+//----------------------------------------------------------------------Responsive
+
+  @media (min-width: 500px) {
+    .buttCreate2 {
+      height: 270px;
+      width: 490px;
+      font-size: 25px;
+    }
+
+  }

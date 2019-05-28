@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor: #e6e6e6;
+$backPicking: #f5f5f5;
+$generalText: #222222;
+$backMenu: #222222;
+$menuText: #f5f5f5;
+$specialColor: #e6003f;
+$fontText: "Roboto Slab", serif;
+$fontTitle: "Roboto", sans-serif;
+
+.butt {
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.save-routine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  font-family: $fontText;
+  color: $generalText;
+  font-size: 18px;
+}
+
+.placeholder {
+  margin: 10px 0;
+  width: 160px;
+  box-shadow: 0 0 5px $backMenu;
+}
+
+.buttSave {
+  background-color:$specialColor;
+  border-style:solid;
+  border-color:$specialColor;
+  border-radius:5px;
+  font-family: $fontText;
+  color: $menuText;
+  font-size: 18px;
+  width: 190px;
+  margin: 0.2vw 24vw;
+  margin-top:2vh;
+}
+
+.rodal, .rodal-mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+}
+
+.error-message{
+  font-family: $fontText;
+  color:$backMenu;
+  font-size: 16px;
+  text-align:center;
+  margin-top:20px;
+}

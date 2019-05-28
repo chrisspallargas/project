@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor: #e6e6e6;
+$backPicking: #f5f5f5;
+$generalText: #222222;
+$backMenu: #222222;
+$menuText: #f5f5f5;
+$specialColor: #e6003f;
+$fontText: "Roboto Slab", serif;
+$fontTitle: "Roboto", sans-serif;
+
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  justify-content: center;
+}
+
+.buttCreate {
+  display: flex;
+  height: 200px;
+  width: 345px;
+  border-radius: 10px;
+  justify-content: center;
+  font-family: $fontTitle;
+  color: $backColor;
+  font-size: 1.1em;
+  background-image: url("../../img/ImagenBoton1.jpg");
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.linkCreate {
+  color: $menuText;
+  text-decoration: none;
+}
+
+//----------------------------------------------------------------------Responsive
+
+@media (min-width: 500px) {
+  .buttCreate {
+    height: 270px;
+    width: 490px;
+    font-size: 25px;
+    margin-top: 112px;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .create {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80%;
+    justify-content: center;
+  }
+
+  .buttCreate {
+    margin-top: 0px;
+    margin-right:10px;
+  }
+}

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+
+.current-exercise{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    //background-color: lightpink;
+    height:63vh;
+    width:100%;
+}
+
+.current-img{
+    width: auto;
+    height: 260px;
+    margin-top:10px;
+}
+
+.current-name{
+    font-family: $fontTitle;
+    color:$generalText;
+    font-size:1.4em;
+    margin:10px;
+}
+
+.current-intensity{
+    font-family: $fontTitle;
+    color:$generalText;
+    font-size:1em;
+}
+
+.current-description{
+    font-family: $fontTitle;
+    color:$generalText;
+    font-size: 0.8em;
+    padding:10px;
+    text-align:center;
+}
+
+//----------------------------------------------------------------------Responsive
+
+@media(min-width:500px){
+
+    .current-img{
+        width: auto;
+        height: 300px;
+    }
+
+    .current-name{
+        font-size:1.4em;
+    }
+
+    .current-description{
+        font-size: 0.8em;
+        width:90%;
+    }
+}
+
+
+@media(min-width:800px){
+
+    .current-img{
+        width: auto;
+        height: 330px;
+    }
+}
+
+

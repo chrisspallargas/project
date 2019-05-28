@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+$backColor:#E6E6E6;
+$backPicking:#F5F5F5;
+$generalText:#222222;
+$backMenu:#222222;
+$menuText:#F5F5F5;
+$specialColor:#E6003F;
+$fontText:'Roboto Slab', serif;
+$fontTitle:'Roboto', sans-serif;
+
+
+.routine{
+    display:flex;
+    margin-top:10px;
+    //flex-wrap: wrap;
+    width:100%;
+    height: fit-content;
+    justify-content: center;
+
+    .fakeDrag{
+        width: 94px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin:0 5px;
+        
+
+        .containerEx{
+            width:100px;
+            .eachEx{
+                width: 100px;
+    
+            }
+        }
+        
+    }
+}
+
+#separador-container{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    #separador{
+        height: 1px;
+        border-bottom-style: solid;
+        border-bottom-width: 0.5px;
+        width:80%;
+        margin-top: 10px;
+    }
+}
+
+
+// .newFakeDrag{
+//     width:100px;
+// }
+
+.routine > .slick-slider{
+    width: 28%;
+    margin: 0 auto;
+    //display:flex;//----------------------para que este flex funcione tengo ke deshabilitarlo y habilitarlo.
+    //------------------------------------sino, no aparece el contenido
+
+    .slick-slide{
+        width:100px;   
+    }
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color:$specialColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .routine-container{
+      font-family: $fontText;
+      color:$generalText;
+      font-size: 23px;
+      width: 100%;
+      text-align: center;
+      margin-left: 79px;
+  }
+
+//----------------------------------------------------------------------Responsive  
+
+  @media(max-width:750px){
+
+  }

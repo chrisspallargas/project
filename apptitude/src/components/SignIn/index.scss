@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900" rel="stylesheet');
+
+$backColor: #e6e6e6;
+$backPicking: #f5f5f5;
+$generalText: #222222;
+$backMenu: #222222;
+$menuText: #f5f5f5;
+$specialColor: #e6003f;
+$fontText: "Roboto Slab", serif;
+$fontTitle: "Roboto", sans-serif;
+
+.userData {
+  background-color: transparent;
+  border-color: grey;
+  color: $menuText;
+  font-family: $fontText;
+  width: 180px;
+  height: 20px;
+}
+
+.big {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 30px auto;
+}
+
+.all-advan {
+  color: $menuText;
+  font-family: $fontText;
+  font-size: 0.9em;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.advantatges {
+  line-height: 30px;
+}
+
+.signin-form {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-tags {
+  font-family: $fontTitle;
+  color: $backColor;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.buttLog {
+  background-color: $backMenu;
+  opacity: 0.5;
+  border-radius: 8%;
+  border-width: 0.5px;
+  width: 90px;
+  height: 45px;
+  margin-top: 16px;
+}
+
+span{
+  font-family: $fontTitle;
+  color: $backColor;
+}
+
+#alert{
+  font-family: $fontText;
+  color:$menuText;
+  margin:10px auto;
+}
+
+//----------------------------------------------------------------------Responsive
+
+@media (min-width:500px){
+
+  .all-advan {
+    margin-bottom: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width:1000px){
+
+  .big{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    margin-top: 40px
+  }
+
+  .all-advan {
+    width:59%;
+    margin-top: 27px;
+    font-size: 1.2em;
+  }
+
+  .signin-form{
+    display:flex;
+    width:30%;
+  }
+}
+
