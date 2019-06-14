@@ -21,8 +21,8 @@ $fontTitle:'Roboto', sans-serif;
 }
 
 .current-img{
-    width: auto;
-    height: 260px;
+    width: 90vw;;
+    height: 35vh;
     margin-top:10px;
 }
 
@@ -30,14 +30,14 @@ $fontTitle:'Roboto', sans-serif;
     font-family: $fontTitle;
     color:$generalText;
     font-size:1.4em;
-    margin:10px;
+    margin-top:10px;
 }
 
-.current-intensity{
-    font-family: $fontTitle;
-    color:$generalText;
-    font-size:1em;
-}
+// .current-intensity{
+//     font-family: $fontTitle;
+//     color:$generalText;
+//     font-size:1em;
+// }
 
 .current-description{
     font-family: $fontTitle;
@@ -51,10 +51,10 @@ $fontTitle:'Roboto', sans-serif;
 
 @media(min-width:500px){
 
-    .current-img{
-        width: auto;
-        height: 300px;
-    }
+    // .current-img{
+    //     width: auto;
+    //     height: 300px;
+    // }
 
     .current-name{
         font-size:1.4em;
@@ -69,10 +69,10 @@ $fontTitle:'Roboto', sans-serif;
 
 @media(min-width:800px){
 
-    .current-img{
-        width: auto;
-        height: 330px;
-    }
+    // .current-img{
+    //     width: auto;
+    //     height: 330px;
+    // }
 }
 
 

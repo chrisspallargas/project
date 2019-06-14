@@ -15,7 +15,7 @@ export default class CurrentExercise extends Component {
                     src={this.props.exerc.img}>
                 </img>
                 <div className='current-name'>{this.props.exerc.name}</div>
-                <div className='current-intensity'>{this.props.exerc.intensity}</div>
+                {/* <div className='current-intensity'>{this.props.exerc.intensity}</div> */}
                 <div className='current-description'>{this.props.exerc.description}</div>
 
 

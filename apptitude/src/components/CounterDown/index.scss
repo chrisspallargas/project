@@ -22,8 +22,8 @@ $fontTitle:'Roboto', sans-serif;
     border-style:solid;
     border-width:5px;
     border-color:$specialColor;
-    height:175px;
-    width: 175px;
+    height:30vh;
+    width: 52vw;
     border-radius:50%;
     background-color:transparent;
 }
@@ -38,8 +38,8 @@ $fontTitle:'Roboto', sans-serif;
 
 @media(min-width:500px){
 
-    .butt-down{
-        height:200px;
-        width: 200px;
-    }
+    // .butt-down{
+    //     height:200px;
+    //     width: 200px;
+    // }
 }
