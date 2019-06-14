@@ -18,16 +18,16 @@ $fontTitle:'Roboto', sans-serif;
 
 .principal{
   background-image: url('../../img/WelcomeToApptitude.png');
-  height: 30vh;
+  height: 23vh;
   margin-top: -25px;
   display: flex;
   width: 444px;
   flex-direction: column;
-  background-size: contain;
+  background-size: cover;
   }
   
   .askUser{
-    height:73vh;
+    height:84vh;
     display:flex;
     flex-direction:column;
     align-items: center;

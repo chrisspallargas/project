@@ -2,7 +2,7 @@
   background-image: url("../../img/Imagen\ Portada\ osc2.jpg");
   background-position: center;
   background-size: cover;
-  height: 170vh;
+  height: fit-content;
 }
 
 //----------------------------------------------------------------------Responsive
@@ -13,7 +13,7 @@
       background-image: url("../../img/Imagen\ Portada\ 2\ \(1920\).jpg");
       height: 100vh;
       width: auto; 
-      background-size: contain; 
+      background-size: cover 
     }
 
 }

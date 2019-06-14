@@ -193,7 +193,7 @@ class RandomPage extends Component {
                 <button className='random-butt' onClick={this.discard}>Discard</button>
                 <button className='random-butt' onClick={this.start}>Let's start!</button>
                 <Rodal customStyles={{ backgroundColor: "#E6E6E6", borderRadius: '25px' }}
-                    animation={'flip'} width={300} height={330}
+                    animation={'flip'} width={260} height={355}
                     visible={showModal} onClose={this.hide}>
                     <div>
                         <div className='minutes2'>
